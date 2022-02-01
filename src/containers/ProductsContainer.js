@@ -1,7 +1,9 @@
-export default function ProductsContainer() {
+const ProductsContainer = () => {
   return (
     <div>
       
     </div>
   )
 }
+
+export default ProductsContainer;
