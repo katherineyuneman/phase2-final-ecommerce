@@ -1,9 +1,9 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import NavBar from 'src/components/navigation/NavBar.js';
+import NavBar from './navigation/NavBar';
 import Home from './Home';
 import ProductsContainer from '../containers/ProductsContainer';
-import ProductCard from './products/ProductCard';
+import { ProductCard } from './products/ProductCard';
 
 
 function App() {
