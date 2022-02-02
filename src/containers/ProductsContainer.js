@@ -15,19 +15,17 @@ const ProductsContainer = () => {
     } catch (error) {
        alert(error)
       }
-
   }
 
  useEffect(() => {
   fetchData()
  }, [])
 
+ console.log("products console log:", products)
+
   return (
     <div>
-      <ProductsFilter />
       <ProductsList products={products}/>
-      <ProductsSearch />
-
       
     </div>
   )

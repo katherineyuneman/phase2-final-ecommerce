@@ -6,7 +6,7 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/394x394/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_3e139cc9-6088-4d14-8e29-efbbec784ce9.jpg",
       "inventory": 5,
-      "price_per_unit": "5.99",
+      "price_per_unit": 5.99,
       "units": "1 lb",
       "department":"Produce"
     },
@@ -16,8 +16,8 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/394x394/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_09ff3801-efef-43e6-a14b-6dc55a3fe4c8.jpg",
       "inventory": 3,
-      "price_per_unit": "1.99",
-      "units": "1",
+      "price_per_unit": 1.99,
+      "units": "1 item",
       "department":"Produce"
     },
     {
@@ -26,7 +26,7 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_d85da0df-7f4a-4a8c-b066-b7bbfd871f70.jpg",
       "inventory": 5,
-      "price_per_unit": "2.25",
+      "price_per_unit": 2.25,
       "units": "1 bunch",
       "department":"Produce"
     },
@@ -36,8 +36,8 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_388ce210-17ad-402c-bc88-a4e245d17591.jpg",
       "inventory": 18,
-      "price_per_unit": "2.00",
-      "units": "1",
+      "price_per_unit": 2.00,
+      "units": "1 item",
       "department":"Produce"
     },
     {
@@ -46,18 +46,18 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_91e6ebd6-fb26-4320-bc37-2003de8b54ce.jpg",
       "inventory": 10,
-      "price_per_unit": "2.20",
-      "units": "1",
+      "price_per_unit": 2.20,
+      "units": "1 item",
       "department":"Produce"
     },
     {
       "id": 6,
-      "name": "Red Bell Pepper",
+      "name": "Red Onion",
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_01ad8efc-cdc1-4503-b80e-94851b480230.jpg",
       "inventory": 20,
-      "price_per_unit": ".20",
-      "units": "1",
+      "price_per_unit": 1.10 ,
+      "units": "1 item",
       "department":"Produce"
     },
     {
@@ -66,8 +66,8 @@
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_75068ae6-6ba0-4376-af36-ef1b01b7b608.jpg",
       "inventory": 20,
-      "price_per_unit": ".20",
-      "units": "1",
+      "price_per_unit": 0.20,
+      "units": "1 item",
       "department":"Produce"
     },
     {
@@ -75,89 +75,89 @@
       "name": "Garlic",
       "brand": "Farm Fresh",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_0df5ab9a-9aea-4c1d-8536-de10ca318096.jpg",
-      "inventory": 20,
-      "price_per_unit": ".20",
-      "units": "1",
+      "inventory": 4,
+      "price_per_unit": 0.10,
+      "units": "1 item",
       "department":"Produce"
     },
 
     {
       "id": 9,
       "name": "Eggs",
-      "Brand": "Eggland's Best",
+      "brand": "Eggland's Best",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_95034fdf-c1cc-4d4e-a0a3-42c182fbcb48.png",
       "inventory": 20,
-      "price_per_unit": "5.50",
+      "price_per_unit": 5.50,
       "units": "1 dozen",
       "department":"Dairy & Eggs"
     },
     {
       "id": 10,
       "name": "Butter",
-      "Brand": "Land O Lakes",
+      "brand": "Land O Lakes",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_5075ba3e-5e8e-4e86-bd8e-1b6f32c71236.png",
       "inventory": 10,
-      "price_per_unit": "6.50",
+      "price_per_unit": 6.50,
       "units": "1 lb",
       "department":"Dairy & Eggs"
     },
     {
       "id": 11,
       "name": "Mozzarella String Cheese",
-      "Brand": "Polly-O",
+      "brand": "Polly-O",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_7f3e1821-35dc-4b3c-a01b-ef3351cdcd4f.jpg",
       "inventory": 17,
-      "price_per_unit": "5.29",
+      "price_per_unit": 5.29,
       "units": "12 ct",
       "department":"Dairy & Eggs"
     },
     {
       "id": 12,
       "name": "Whole Milk",
-      "Brand": "Horizon Organic",
+      "brand": "Horizon Organic",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_34f66386-02e2-45ab-bdf2-fa49d90b0d06.jpg",
       "inventory": 10,
-      "price_per_unit": "5.99",
+      "price_per_unit": 5.99,
       "units": ".5 gal",
       "department":"Dairy & Eggs"
     },
     {
       "id": 13,
       "name": "Boneless Chicken Breast",
-      "Brand": "Perdue",
+      "brand": "Perdue",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_0afada9e-375a-4d2c-8888-074e1d8b9f70.jpg",
       "inventory": 4,
-      "price_per_unit": "11.49",
+      "price_per_unit": 11.49,
       "units": "1 lb",
       "department":"Meat & Seafood"
     },
     {
       "id": 14,
       "name": "Ground Turkey",
-      "Brand": "Shady Brook Farms",
+      "brand": "Shady Brook Farms",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_7b6184a1-f028-4d52-9ce7-ddc0e2a69ba4.jpg",
-      "inventory": 4,
-      "price_per_unit": "6.49",
+      "inventory": 10,
+      "price_per_unit": 6.49,
       "units": "1.3 lb",
       "department":"Meat & Seafood"
     },
     {
       "id": 15,
       "name": "Rotini Pasta",
-      "Brand": "Barilla",
+      "brand": "Barilla",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_1d3c507c-8658-4e29-a935-17d56f6bf757.png",
       "inventory": 4,
-      "price_per_unit": "2.00",
+      "price_per_unit": 2.00,
       "units": "1 lb",
       "department":"Dry Goods & Pasta"
     },
     {
       "id": 16,
       "name": "Can Crushed Tomatoes",
-      "Brand": "Tuttorosso",
+      "brand": "Tuttorosso",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_c1ad5051-2e0b-408d-8a15-8e0bd553f2de.jpg",
       "inventory": 14,
-      "price_per_unit": "1.50",
+      "price_per_unit": 1.50,
       "units": "28 oz",
       "department":"Dry Goods & Pasta"
     }

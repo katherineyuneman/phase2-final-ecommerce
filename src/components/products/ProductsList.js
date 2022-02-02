@@ -1,8 +1,7 @@
 import { ProductCard } from "./ProductCard"
-
 const ProductsList = ({products}) => {
-  const mappingProducts = products.map(product => <ProductCard key={product.id} product={product}/>)
 
+  const mappingProducts = products.map(product => <ProductCard key={product.id} product={product}/>)
   return (
     <div>
       <h2>Products</h2>
@@ -11,4 +10,4 @@ const ProductsList = ({products}) => {
   )
 }
 
-export default ProductsList
+export default ProductsList;
