@@ -1,11 +1,12 @@
 import { ProductCard } from "./ProductCard"
 
 const ProductsList = ({products}) => {
-  const eachProduct = products.map(product => <ProductCard product={product}/>)
+  const mappingProducts = products.map(product => <ProductCard key={product.id} product={product}/>)
 
   return (
     <div>
-      {eachProduct}
+      <h2>Products</h2>
+      <div style={{display:"flex", flexWrap:"wrap"}}>{mappingProducts}</div>
     </div>
   )
 }
