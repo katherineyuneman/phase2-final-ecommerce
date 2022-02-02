@@ -46,10 +46,10 @@ const NavBar = () => {
       }}
         exact
         style={linkStyle}
-        to="/products/:id"
+        to="/cart"
 
       >
-        Search
+        Cart
       </NavLink>
 
 

@@ -1,8 +1,6 @@
-const ProductCard = ({product}) => {
+const ProductCard = ({handleClick, product}) => {
 
-  const handleClick = (e) => {
-    console.log("product name:", product.name, "product inventory:", product.inventory)
-  }
+  
   return (
     <div style={{border: "solid", width:"150px", margin: "auto", height:"350px", padding:"1em"}}>
      <h5 style={{backgroundColor:"black", color:"white"}}>{product.department}</h5>
@@ -17,7 +15,7 @@ const ProductCard = ({product}) => {
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         
 
-      <button onClick={handleClick}>Add to Cart</button>
+      <button className="add" onClick={() => handleClick(product)}>Add to Cart</button>
     </div>
   )
 }
