@@ -9,7 +9,8 @@ const InventoryContainer = () => {
 
   const [ selectedProduct, setSelectedProduct ] = useState({})
   const [ productsList, setProductsList ] = useState([])
-
+  const [ cart, setCart ] = useState([])
+  
   //initial GET request
   const fetchData = async () => {
     try {
@@ -21,33 +22,34 @@ const InventoryContainer = () => {
       }
   }
 
- useEffect(() => {
-  fetchData()
- }, [])
+  useEffect(() => {
+    fetchData();
+  }, [])
 
+  const productsInCart = productsList.filter(product => !!product.in_cart)
+
+  useEffect(() => {
+    setCart(productsInCart)
+  }, [productsList])
 
  //item click & PATCH request
 
   const handleClick = (product) => {
     setSelectedProduct(product)
+    setCart(currentCart => [...currentCart, product])
   }
 
 
-  useEffect(() => { 
-    fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-      "in_cart": true
-    })
-  })
-    .then(resp =>  resp.json())
-    .then(addedProduct =>  console.log(addedProduct.name, addedProduct.id, addedProduct.in_cart))
-  }, [selectedProduct])
 
+  // const handleUpdateCart = (addedProduct) => {
+    
+  //   } 
 
+  // const handleAddToCartList = (addedProduct) => {
+  //   console.log("added product to cart:", addedProduct)
+  //   const updatedCartProducts = productsList
+  //   setProductsList(updatedCartProducts)
+  // }
 
   return (
     <div>
@@ -61,7 +63,7 @@ const InventoryContainer = () => {
             <ProductsContainer productsList={productsList} handleClick={handleClick}/>
           </Route>
           <Route path ="/cart">
-            <CartContainer productsList={productsList}/>
+            <CartContainer cart={cart} selectedProduct={selectedProduct}/>
           </Route>
         </Switch>
       </Router>

@@ -9,7 +9,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 3,
@@ -97,7 +97,7 @@
       "price_per_unit": 5.5,
       "units": "1 dozen",
       "department": "Dairy & Eggs",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 10,
@@ -119,7 +119,7 @@
       "price_per_unit": 5.29,
       "units": "12 ct",
       "department": "Dairy & Eggs",
-      "in_cart": false
+      "in_cart": true
     },
     {
       "id": 12,
