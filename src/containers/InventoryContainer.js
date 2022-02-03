@@ -41,14 +41,23 @@ const InventoryContainer = () => {
 
 
 
-  // const handleUpdateCart = (addedProduct) => {
-    
-  //   } 
+  useEffect(() => { 
+    fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({
+      "in_cart": true
+    })
+  })
+    .then(resp =>  resp.json())
+    // .then(addedProduct => handleSetCart(addedProduct))
+    .catch(err => alert(err))
+  }, [selectedProduct])
 
-  // const handleAddToCartList = (addedProduct) => {
-  //   console.log("added product to cart:", addedProduct)
-  //   const updatedCartProducts = productsList
-  //   setProductsList(updatedCartProducts)
+  // const handleSetCart = (product) => {
+  //   setCart(currentCart => [...currentCart, product])
   // }
 
   return (
