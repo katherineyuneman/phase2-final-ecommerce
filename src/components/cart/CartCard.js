@@ -2,13 +2,6 @@ import { useState , useEffect} from "react"
 
 const CartCard = ({handleRemoveClick, product, selectedProduct}) => {
   
-  const [ productQuantity, setProductQuantity ] = useState(0)
-
-  useEffect(() => {
-    setProductQuantity(currentQuantity => currentQuantity + 1)
-  }, [selectedProduct])
-
-  
 
   return (
     <div style={{border: "solid", width:"100px", margin: "auto", height:"350px", padding:".5em"}}>
@@ -18,7 +11,7 @@ const CartCard = ({handleRemoveClick, product, selectedProduct}) => {
       <h5>{product.brand}</h5>
         ${product.price_per_unit.toFixed(2)}
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
-        Quantity in Cart: {productQuantity}
+        Quantity in Cart: {product.in_cart}
       <button onClick={() => handleRemoveClick(product)}>Remove from Cart</button>
     </div>
   )

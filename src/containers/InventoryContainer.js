@@ -13,6 +13,7 @@ const InventoryContainer = () => {
   const [ removeProduct, setRemoveProduct ] = useState({})
   const [ productQuantity, setProductQuantity ] = useState(0)
   
+  
   //initial GET request
   const fetchData = async () => {
     try {
@@ -28,7 +29,7 @@ const InventoryContainer = () => {
     fetchData();
   }, [])
 
-  const productsInCart = productsList.filter(product => !!product.in_cart)
+  const productsInCart = productsList.filter(product => product.in_cart > 0)
 
   useEffect(() => {
     setCart(productsInCart)
@@ -37,10 +38,15 @@ const InventoryContainer = () => {
  //item click & PATCH request
 
   const handleAddClick = (product) => {
-    setSelectedProduct(product)
-    setCart(currentCart => [...currentCart, product])
-    setProductQuantity(currentQuantity => currentQuantity + 1)
+    if (!cart.includes(product)){
+      setSelectedProduct(product)
+      setCart(currentCart => [...currentCart, product])
+      setProductQuantity(currentQuantity => currentQuantity + 1)
+    } else return setProductQuantity(currentQuantity => currentQuantity + 1)
+    
+    
   }
+
 
   const handleRemoveClick = (product) => {
     setRemoveProduct(product)
@@ -54,14 +60,14 @@ const InventoryContainer = () => {
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": true
+      "in_cart": productQuantity
     })
   })
     .then(resp =>  resp.json())
     .then(addedProduct => console.log("patched product:", addedProduct))
     // .then(addedProduct => handleSetCart(addedProduct))
     .catch(err => alert(err))
-  }, [selectedProduct])
+  }, [selectedProduct, productQuantity])
 
 
   useEffect(() => { 
@@ -71,7 +77,7 @@ const InventoryContainer = () => {
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": false
+      "in_cart": productQuantity
     })
   })
     .then(resp =>  resp.json())
@@ -97,7 +103,7 @@ const InventoryContainer = () => {
             <ProductsContainer productsList={productsList} handleClick={handleAddClick}/>
           </Route>
           <Route path ="/cart">
-            <CartContainer cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick} removeProduct={removeProduct}/>
+            <CartContainer cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick} productQuantity={productQuantity}/>
           </Route>
         </Switch>
       </Router>

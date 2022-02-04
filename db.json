@@ -9,7 +9,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": 0
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "price_per_unit": 2.25,
       "units": "1 bunch",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": 0
     },
     {
       "id": 4,
@@ -141,7 +141,7 @@
       "price_per_unit": 11.49,
       "units": "1 lb",
       "department": "Meat & Seafood",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 14,
