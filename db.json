@@ -9,7 +9,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": true
     },
     {
       "id": 3,
@@ -53,7 +53,7 @@
       "price_per_unit": 2.2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 6,
@@ -86,7 +86,7 @@
       "price_per_unit": 0.1,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 9,
@@ -119,7 +119,7 @@
       "price_per_unit": 5.29,
       "units": "12 ct",
       "department": "Dairy & Eggs",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "price_per_unit": 5.99,
       "units": ".5 gal",
       "department": "Dairy & Eggs",
-      "in_cart": true
+      "in_cart": false
     },
     {
       "id": 13,
@@ -174,7 +174,7 @@
       "price_per_unit": 1.5,
       "units": "28 oz",
       "department": "Dry Goods & Pasta",
-      "in_cart": true
+      "in_cart": false
     }
   ]
 }

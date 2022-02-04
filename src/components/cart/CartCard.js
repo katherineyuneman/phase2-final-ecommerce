@@ -1,4 +1,13 @@
-const CartCard = ({product}) => {
+import { useState , useEffect} from "react"
+
+const CartCard = ({handleRemoveClick, product, selectedProduct}) => {
+  
+  const [ productQuantity, setProductQuantity ] = useState(0)
+
+  useEffect(() => {
+    setProductQuantity(currentQuantity => currentQuantity + 1)
+  }, [selectedProduct])
+
   
 
   return (
@@ -9,7 +18,8 @@ const CartCard = ({product}) => {
       <h5>{product.brand}</h5>
         ${product.price_per_unit.toFixed(2)}
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
-      <button> Remove from Cart</button>
+        Quantity in Cart: {productQuantity}
+      <button onClick={() => handleRemoveClick(product)}>Remove from Cart</button>
     </div>
   )
 }
