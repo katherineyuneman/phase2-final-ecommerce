@@ -11,7 +11,7 @@ const InventoryContainer = () => {
   const [ productsList, setProductsList ] = useState([])
   const [ cart, setCart ] = useState([])
   const [ removeProduct, setRemoveProduct ] = useState({})
-  const [ productQuantity, setProductQuantity ] = useState(0)
+  const [ productQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
   
   
   //initial GET request
@@ -38,21 +38,24 @@ const InventoryContainer = () => {
  //item click & PATCH request
 
   const handleAddClick = (product) => {
+    console.log("product after click:", product)
     if (!cart.includes(product)){
       setSelectedProduct(product)
       setCart(currentCart => [...currentCart, product])
       setProductQuantity(currentQuantity => currentQuantity + 1)
-    } else return setProductQuantity(currentQuantity => currentQuantity + 1)
-    
-    
+    } else {
+      setSelectedProduct(product)
+      setProductQuantity(currentQuantity => currentQuantity + 1)
   }
+}
 
 
   const handleRemoveClick = (product) => {
     setRemoveProduct(product)
-    setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id))
+    setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id && removeItem.in_cart > 0))
   }
 
+  console.log("selectedproduct", selectedProduct.in_)
   useEffect(() => { 
     fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
       method: 'PATCH',
@@ -60,7 +63,7 @@ const InventoryContainer = () => {
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": productQuantity
+      "in_cart": (selectedProduct.in_cart) + 1
     })
   })
     .then(resp =>  resp.json())
@@ -77,7 +80,7 @@ const InventoryContainer = () => {
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": productQuantity
+      "in_cart": (removeProduct.in_cart) - 1
     })
   })
     .then(resp =>  resp.json())

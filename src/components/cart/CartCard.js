@@ -1,7 +1,10 @@
 import { useState , useEffect} from "react"
 
-const CartCard = ({handleRemoveClick, product, selectedProduct}) => {
+const CartCard = ({handleRemoveClick, product, selectedProduct, productQuantity}) => {
+  console.log("product quantity passed down:",productQuantity);
+  // const updatedProduct = {...product, "in_cart": productQuantity}
   
+  // console.log("updated product:", updatedProduct)
 
   return (
     <div style={{border: "solid", width:"100px", margin: "auto", height:"350px", padding:".5em"}}>

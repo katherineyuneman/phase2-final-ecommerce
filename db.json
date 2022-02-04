@@ -9,7 +9,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 1
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 4
     },
     {
       "id": 3,
@@ -42,7 +42,7 @@
       "price_per_unit": 2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "price_per_unit": 2.2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "price_per_unit": 1.1,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "price_per_unit": 0.2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "price_per_unit": 0.1,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "price_per_unit": 5.5,
       "units": "1 dozen",
       "department": "Dairy & Eggs",
-      "in_cart": false
+      "in_cart": 2
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "price_per_unit": 6.5,
       "units": "1 lb",
       "department": "Dairy & Eggs",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 11,
@@ -119,7 +119,7 @@
       "price_per_unit": 5.29,
       "units": "12 ct",
       "department": "Dairy & Eggs",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "price_per_unit": 5.99,
       "units": ".5 gal",
       "department": "Dairy & Eggs",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 13,
@@ -152,7 +152,7 @@
       "price_per_unit": 6.49,
       "units": "1.3 lb",
       "department": "Meat & Seafood",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 15,
@@ -163,7 +163,7 @@
       "price_per_unit": 2,
       "units": "1 lb",
       "department": "Dry Goods & Pasta",
-      "in_cart": false
+      "in_cart": 0
     },
     {
       "id": 16,
@@ -174,7 +174,7 @@
       "price_per_unit": 1.5,
       "units": "28 oz",
       "department": "Dry Goods & Pasta",
-      "in_cart": false
+      "in_cart": 0
     }
   ]
 }
