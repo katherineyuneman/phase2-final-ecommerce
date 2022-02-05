@@ -1,8 +1,8 @@
 import { useState , useEffect} from "react"
 
-const CartCard = ({handleRemoveClick, product, selectedProduct, newProductQuantity}) => {
-  console.log("product quantity passed down:",newProductQuantity);
-  const updatedProduct = {...product, in_cart: newProductQuantity}
+const CartCard = ({handleRemoveClick, product, selectedProduct, productQuantity}) => {
+  console.log("product quantity passed down:",productQuantity);
+  const updatedProduct = {...product, in_cart: productQuantity}
   
   console.log("updated product:", updatedProduct)
 
