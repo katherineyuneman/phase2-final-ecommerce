@@ -42,35 +42,35 @@ const InventoryContainer = () => {
     if (!cart.includes(product)){
       setSelectedProduct(product)
       setCart(currentCart => [...currentCart, product])
-      setProductQuantity(currentQuantity => currentQuantity + 1)
     } else {
       setSelectedProduct(product)
-      setProductQuantity(currentQuantity => currentQuantity + 1)
+    
+
   }
 }
 
 
   const handleRemoveClick = (product) => {
     setRemoveProduct(product)
-    setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id && removeItem.in_cart > 0))
+    setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id && removeItem.in_cart === 0))
   }
 
-  console.log("selectedproduct", selectedProduct.in_)
-  useEffect(() => { 
-    fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-      "in_cart": (selectedProduct.in_cart) + 1
-    })
-  })
-    .then(resp =>  resp.json())
-    .then(addedProduct => console.log("patched product:", addedProduct))
-    // .then(addedProduct => handleSetCart(addedProduct))
-    .catch(err => alert(err))
-  }, [selectedProduct, productQuantity])
+  // console.log("selectedproduct", selectedProduct.in_)
+  // useEffect(() => { 
+  //   fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //   },
+  //   body:JSON.stringify({
+  //     "in_cart": productQuantity
+  //   })
+  // })
+  //   .then(resp =>  resp.json())
+  //   .then(addedProduct => console.log("patched product:", addedProduct))
+  //   // .then(addedProduct => handleSetCart(addedProduct))
+  //   .catch(err => alert(err))
+  // }, [selectedProduct, productQuantity])
 
 
   useEffect(() => { 
@@ -80,7 +80,7 @@ const InventoryContainer = () => {
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": (removeProduct.in_cart) - 1
+      "in_cart": productQuantity
     })
   })
     .then(resp =>  resp.json())
@@ -106,7 +106,7 @@ const InventoryContainer = () => {
             <ProductsContainer productsList={productsList} handleClick={handleAddClick}/>
           </Route>
           <Route path ="/cart">
-            <CartContainer cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick} productQuantity={productQuantity}/>
+            <CartContainer cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick}/>
           </Route>
         </Switch>
       </Router>

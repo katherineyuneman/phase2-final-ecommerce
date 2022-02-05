@@ -1,10 +1,10 @@
 import { useState , useEffect} from "react"
 
-const CartCard = ({handleRemoveClick, product, selectedProduct, productQuantity}) => {
-  console.log("product quantity passed down:",productQuantity);
-  // const updatedProduct = {...product, "in_cart": productQuantity}
+const CartCard = ({handleRemoveClick, product, selectedProduct, newProductQuantity}) => {
+  console.log("product quantity passed down:",newProductQuantity);
+  const updatedProduct = {...product, in_cart: newProductQuantity}
   
-  // console.log("updated product:", updatedProduct)
+  console.log("updated product:", updatedProduct)
 
   return (
     <div style={{border: "solid", width:"100px", margin: "auto", height:"350px", padding:".5em"}}>
@@ -14,7 +14,13 @@ const CartCard = ({handleRemoveClick, product, selectedProduct, productQuantity}
       <h5>{product.brand}</h5>
         ${product.price_per_unit.toFixed(2)}
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
-        Quantity in Cart: {product.in_cart}
+        Quantity in Cart: {selectedProduct.id === product.id ?
+          (updatedProduct.in_cart)
+        : 
+          (product.in_cart)
+        }
+        
+        
       <button onClick={() => handleRemoveClick(product)}>Remove from Cart</button>
     </div>
   )
