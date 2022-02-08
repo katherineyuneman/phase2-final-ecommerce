@@ -1,7 +1,7 @@
 import { ProductCard } from "./ProductCard"
-const ProductsList = ({handleClick, productsList}) => {
+const ProductsList = ({handleAddClick, productsList}) => {
 
-  const mappingProducts = productsList.map(product => <ProductCard key={product.id} product={product} handleClick={handleClick}/>)
+  const mappingProducts = productsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
   return (
     <div>
       <h2>Products</h2>

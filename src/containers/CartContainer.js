@@ -2,38 +2,38 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 
-const CartContainer = ({cart, selectedProduct, handleRemoveClick}) => {
-  console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
+const CartContainer = ({cart, selectedProduct, productQuantity, handleRemoveClick}) => {
+  // console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
 
-  const [ newProductQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
+  // const [ newProductQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
 
-  useEffect(() => {
-    setProductQuantity(currentQuantity => currentQuantity + 1)
-  }, [selectedProduct])
+  // useEffect(() => {
+  //   setProductQuantity(currentQuantity => currentQuantity + 1)
+  // }, [selectedProduct])
 
-  console.log("selectedproduct", selectedProduct.in_)
-  useEffect(() => { 
-    fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-      "in_cart": newProductQuantity
-    })
-  })
-    .then(resp =>  resp.json())
-    .then(addedProduct => console.log("patched product:", addedProduct))
-    .then(addedProduct => console.log(addedProduct))
-    .catch(err => alert(err))
-  }, [newProductQuantity])
+  // console.log("selectedproduct", selectedProduct.in_)
+  // useEffect(() => { 
+  //   fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //   },
+  //   body:JSON.stringify({
+  //     "in_cart": newProductQuantity
+  //   })
+  // })
+  //   .then(resp =>  resp.json())
+  //   .then(addedProduct => console.log("patched product:", addedProduct))
+  //   .then(addedProduct => console.log(addedProduct))
+  //   .catch(err => alert(err))
+  // }, [newProductQuantity])
 
 
 
-console.log("cart:",cart)
-
+// console.log("cart:",cart)
+console.log("full cart array in cartContainer:", cart)
 const eachProductInCart =  
-cart.map(product => <CartCard key={product.id} product={product} newProductQuantity={newProductQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
+cart.map(cartItem => <CartCard key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
 
 
 

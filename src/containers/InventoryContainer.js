@@ -5,33 +5,38 @@ import { ProductCard } from '../components/products/ProductCard';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 
-const InventoryContainer = ({countAddClicks, productsList, cart, selectedProduct, removeProduct, handleAddClick, handleRemoveClick}) => {
+const InventoryContainer = ({productQuantity, productsList, cart, selectedProduct, removeProduct, handleAddClick, handleRemoveClick}) => {
 
-  console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
+  // console.log("SELECTED PRODUCT:", productQuantity, selectedProduct, selectedProduct.in_cart)
 
-  const [ productQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
 
-  useEffect(() => {
-    const clicksPluSQuant = countAddClicks + selectedProduct.in_cart
-    setProductQuantity(clicksPluSQuant)
-  }, [selectedProduct])
 
-  console.log("selectedproduct", selectedProduct.in_cart)
+  // console.log("product quantity passed down:",productQuantity);
+  // const updatedProduct = {...product, in_cart: productQuantity}
+  
+  // console.log("updated product:", updatedProduct)
 
-  useEffect(() => { 
-    fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-      "in_cart": productQuantity
-    })
-  })
-    .then(resp =>  resp.json())
-    .then(addedProduct => console.log("patched product:", addedProduct))
-    .catch(err => alert(err))
-  }, [countAddClicks])
+  // useEffect(() => {
+  //   const clicksPluSQuant = countAddClicks + selectedProduct.in_cart
+  //   setProductQuantity(clicksPluSQuant)
+  // }, [selectedProduct])
+
+  // console.log("selectedproduct", selectedProduct.in_cart)
+
+  // useEffect(() => { 
+  //   fetch(`http://localhost:3000/products/${selectedProduct.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //   },
+  //   body:JSON.stringify({
+  //     "in_cart": productQuantity
+  //   })
+  // })
+  //   .then(resp =>  resp.json())
+  //   .then(addedProduct => console.log("patched product:", addedProduct))
+  //   .catch(err => alert(err))
+  // }, [countAddClicks])
   
 
   // console.log("selectedproduct", selectedProduct.in_)
@@ -82,7 +87,7 @@ const InventoryContainer = ({countAddClicks, productsList, cart, selectedProduct
             <ProductCard />
           </Route>
           <Route path ="/products">
-            <ProductsContainer productsList={productsList} handleClick={handleAddClick} productQuantity={productQuantity} />
+            <ProductsContainer productsList={productsList} handleAddClick={handleAddClick} productQuantity={productQuantity} />
           </Route>
           <Route path ="/cart">
             <CartContainer cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick} productQuantity={productQuantity}/>

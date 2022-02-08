@@ -1,11 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const ProductCard = ({handleClick, product}) => {
+const ProductCard = ({handleAddClick, product}) => {
 
+  const [ countItemClick, setCountItemClick ] = useState(0)
+
+  useEffect (() => {
+    
+  setCountItemClick(countItemClick + 1)
+  }, [handleAddClick])
   
+
+
   return (
     <div style={{border: "solid", width:"150px", margin: "auto", height:"350px", padding:"1em"}}>
-     <h5 style={{backgroundColor:"black", color:"white"}}>{product.department}</h5>
+     <h5 style={{backgroundColor:"#8DA878", color:"white"}}>{product.department}</h5>
       <h3>{product.name}</h3>
       <img src={product.image} alt="test" style={{display:"flex", width:"100px", flexWrap:"wrap"}}/>
       <h4>{product.brand}</h4>
@@ -17,7 +25,7 @@ const ProductCard = ({handleClick, product}) => {
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         
 
-      <button className="add" onClick={() => handleClick(product)}>Add to Cart</button>
+      <button className="add" onClick={() => handleAddClick(product, countItemClick)}>Add to Cart</button>
     </div>
   )
 }

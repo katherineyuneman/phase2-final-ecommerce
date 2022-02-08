@@ -3,12 +3,12 @@ import ProductsFilter from "../components/products/ProductsFilter";
 import ProductsList from "../components/products/ProductsList";
 import ProductsSearch from "../components/products/ProductsSearch";
 
-const ProductsContainer = ({handleClick, productsList}) => {
+const ProductsContainer = ({productsList, handleAddClick}) => {
 
-  console.log("product container list:", productsList)
+  // console.log("product container list:", productsList)
   return (
     <div>
-      <ProductsList productsList={productsList} handleClick={handleClick}/>
+      <ProductsList productsList={productsList} handleAddClick={handleAddClick}/>
       
     </div>
   )
