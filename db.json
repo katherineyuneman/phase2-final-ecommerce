@@ -9,7 +9,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 12
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 4
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "price_per_unit": 2.25,
       "units": "1 bunch",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 4
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "price_per_unit": 2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 2
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "price_per_unit": 2.2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 1
     },
     {
       "id": 6,

@@ -12,6 +12,7 @@ function App() {
   const [ removeProduct, setRemoveProduct ] = useState({})
   const [ productQuantity, setProductQuantity ] = useState(0)
   const [ temporaryCart, setTemporaryCart ] = useState([])
+  const [ arrayClickedObjects, setArrayClickedObjects ] = useState([])
 
   const fetchData = async () => {
     try {
@@ -36,17 +37,44 @@ setCart(productsInCart);
 }, [productsList])
 
 
-  
+  const handleAddClick = (product, objectClicked) => {
+//     console.log("props product:", product, "props timesClicked:", click)
+//   let updatedProductItemWithClicks = productsList.filter(intakeProduct => intakeProduct.id === product.id)
+//   console.log("pre-updated array:", updatedProductItemWithClicks)
+//   updatedProductItemWithClicks = {...product, "in_cart": product.in_cart + click}
+// console.log("updated object/array:", updatedProductItemWithClicks)
+// debugger;
+    
 
-  const handleAddClick = (product, countItemClick) => {
-    console.log("props product:", product, "props timesClicked:", countItemClick)
+    console.log("props product:", product, "props timesClicked:", objectClicked)
+    console.log("object clicked inside handleaddclick:", objectClicked)
+    console.log("original array of objects:", arrayClickedObjects)
+    const updatedArray = [...arrayClickedObjects , objectClicked]
+    setArrayClickedObjects(updatedArray)
     // setCountItemClick(countItemClick => countItemClick + 1)
-    const updatedQuantity = countItemClick + product.in_cart
+    console.log("updated array", updatedArray)
+
+
+    let updatedQuantity
+    let updatedProductQuant = []
+    if (product.id === product.id){
+    updatedQuantity = objectClicked.countClick + product.in_cart
     console.log("updated quantity:", updatedQuantity)
     setProductQuantity(updatedQuantity)
-    const updatedProductQuant = {...product, in_cart: updatedQuantity}
-    console.log("updated product with quant:", updatedProductQuant)
 
+    
+    updatedProductQuant = productsList.map(item => {
+      if (item.id===product.id) { return {...item, in_cart: updatedQuantity} ;
+      } else return item
+    })
+      console.log("updated product with quant:", updatedProductQuant)
+     
+    
+    } else {
+      updatedQuantity = product.in_cart
+      setProductQuantity(updatedQuantity)
+      updatedProductQuant = product
+    }
     /// temporarily disabling vvvvv ///
 
     fetch(`http://localhost:3000/products/${product.id}`, {
@@ -84,10 +112,10 @@ setCart(productsInCart);
 
       
     }
-  }
+
 
   
-
+  }
 
 const handleRemoveClick = (product) => {
   setRemoveProduct(product)
