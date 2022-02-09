@@ -3,26 +3,6 @@ import { useEffect, useState } from "react"
 const ProductCard = ({handleAddClick, product}) => {
 
 
-  const [ clicks, setClicks ] = useState(0)
-  const [ productClicked, setProductClicked ] = useState ({})
-  const [ objectClicked, setObjectClicked ] = useState([])
-
-
-
-  useEffect (() => {
-    setObjectClicked([])
-    if (product.id === productClicked.id){
-    setProductClicked(product)
-    setClicks(clicks => clicks + 1)
-    setObjectClicked({"item": productClicked.id, "countClick": clicks})
-    } else {
-    setProductClicked(product)
-    setClicks(clicks + 1)
-    setObjectClicked({"item": productClicked.id, "countClick": clicks})
-    }
-    }, [handleAddClick])
-  
-    
   
  
   return (
@@ -39,7 +19,7 @@ const ProductCard = ({handleAddClick, product}) => {
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         
 
-      <button className="add" onClick={() => handleAddClick(product, objectClicked )}>Add to Cart</button>
+      <button className="add" onClick={() => handleAddClick(product)}>Add to Cart</button>
     </div>
   )
 }

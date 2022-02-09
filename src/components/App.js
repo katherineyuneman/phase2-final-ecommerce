@@ -13,6 +13,7 @@ function App() {
   const [ productQuantity, setProductQuantity ] = useState(0)
   const [ temporaryCart, setTemporaryCart ] = useState([])
   const [ arrayClickedObjects, setArrayClickedObjects ] = useState([])
+  const [ countClicks, setCountClicks ] = useState(0)
 
   const fetchData = async () => {
     try {
@@ -37,45 +38,31 @@ setCart(productsInCart);
 }, [productsList])
 
 
-  const handleAddClick = (product, objectClicked) => {
+  const handleAddClick = (product) => {
 //     console.log("props product:", product, "props timesClicked:", click)
 //   let updatedProductItemWithClicks = productsList.filter(intakeProduct => intakeProduct.id === product.id)
 //   console.log("pre-updated array:", updatedProductItemWithClicks)
 //   updatedProductItemWithClicks = {...product, "in_cart": product.in_cart + click}
 // console.log("updated object/array:", updatedProductItemWithClicks)
 // debugger;
-    
-
-    console.log("props product:", product, "props timesClicked:", objectClicked)
-    console.log("object clicked inside handleaddclick:", objectClicked)
-    console.log("original array of objects:", arrayClickedObjects)
-    const updatedArray = [...arrayClickedObjects , objectClicked]
-    setArrayClickedObjects(updatedArray)
-    // setCountItemClick(countItemClick => countItemClick + 1)
-    console.log("updated array", updatedArray)
 
 
-    let updatedQuantity
-    let updatedProductQuant = []
-    if (product.id === product.id){
-    updatedQuantity = objectClicked.countClick + product.in_cart
-    console.log("updated quantity:", updatedQuantity)
-    setProductQuantity(updatedQuantity)
+    console.log(product)
+  setCountClicks(previousClicks => previousClicks + 1)
+const updatedProductsArray = productsList.map(item => {
+  if (item.id === product.id) {
+    return {...item, in_cart: item.in_cart + countClicks}
+  } else { return item }
+})
+setArrayClickedObjects(updatedProductsArray)
+console.log("arrayClickedObjects:", arrayClickedObjects.in_cart)
 
-    
-    updatedProductQuant = productsList.map(item => {
-      if (item.id===product.id) { return {...item, in_cart: updatedQuantity} ;
-      } else return item
-    })
-      console.log("updated product with quant:", updatedProductQuant)
-     
-    
-    } else {
-      updatedQuantity = product.in_cart
-      setProductQuantity(updatedQuantity)
-      updatedProductQuant = product
-    }
-    /// temporarily disabling vvvvv ///
+const selectedItem_inCart = updatedProductsArray.filter(item => item.id === product.id).map(item => {
+  return {...item, in_cart: item.in_cart + countClicks}})
+
+console.log("selected item in cart", (selectedItem_inCart), selectedItem_inCart.in_cart)
+ 
+
 
     fetch(`http://localhost:3000/products/${product.id}`, {
       method: 'PATCH',
@@ -83,35 +70,14 @@ setCart(productsInCart);
         'Content-Type': 'application/json'
     },
     body:JSON.stringify({
-      "in_cart": updatedQuantity
+      "in_cart": selectedItem_inCart.in_cart
     })
   })
     .then(resp =>  resp.json())
-    // .then(addedProduct => console.log("patched product:", addedProduct))
+    .then(addedProduct => console.log("patched product:", addedProduct, selectedItem_inCart.in_cart, product.id))
     .catch(err => alert(err))
 
-    // console.log("temporary cart:", temporaryCart)
-
-  setTemporaryCart(currentTempCart => [...currentTempCart, updatedProductQuant])
-  if (temporaryCart.filter(obj => obj.id === product.id).length > 0){
-    console.log("temporary cart:", temporaryCart)
-    if (cart.includes(product)){
-      setSelectedProduct(updatedProductQuant)
-    } else {
-      console.log("hitting this one so why isn't it updating the product??")
-      setSelectedProduct(updatedProductQuant)
-      // setCart(currentCart => [...currentCart, updatedProductQuant])
-    } 
-  } else if (temporaryCart.filter(obj => obj.id === product.id).length === 0){
-      if (cart.includes(product)){
-        setSelectedProduct(updatedProductQuant)
-      } else {
-      setSelectedProduct(updatedProductQuant)
-      setCart(currentCart => [...currentCart, updatedProductQuant])
-    }
-
-      
-    }
+    
 
 
   
