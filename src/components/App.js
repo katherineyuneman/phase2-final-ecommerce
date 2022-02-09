@@ -27,7 +27,15 @@ function App() {
     fetchData();
   }, [])
 
-  
+  // set initial cart without any action
+const productsInCart = 
+productsList.filter(product => product.in_cart > 0)
+
+useEffect(() => {
+setCart(productsInCart);
+}, [productsList])
+
+
   
 
   const handleAddClick = (product, countItemClick) => {
@@ -38,8 +46,6 @@ function App() {
     setProductQuantity(updatedQuantity)
     const updatedProductQuant = {...product, in_cart: updatedQuantity}
     console.log("updated product with quant:", updatedProductQuant)
-
-    setTemporaryCart(currentTempCart => [...currentTempCart, updatedProductQuant])
 
     /// temporarily disabling vvvvv ///
 
@@ -58,19 +64,17 @@ function App() {
 
     // console.log("temporary cart:", temporaryCart)
 
-
-debugger;
-  if (!temporaryCart.includes(updatedProductQuant)){
+  setTemporaryCart(currentTempCart => [...currentTempCart, updatedProductQuant])
+  if (temporaryCart.filter(obj => obj.id === product.id).length > 0){
     console.log("temporary cart:", temporaryCart)
     if (cart.includes(product)){
       setSelectedProduct(updatedProductQuant)
     } else {
-      console.log("hitting not in temp cart, not in regular cart", temporaryCart.includes(product))
-      
+      console.log("hitting this one so why isn't it updating the product??")
       setSelectedProduct(updatedProductQuant)
-      setCart(currentCart => [...currentCart, updatedProductQuant])
+      // setCart(currentCart => [...currentCart, updatedProductQuant])
     } 
-  } else if (temporaryCart.includes(updatedProductQuant)){
+  } else if (temporaryCart.filter(obj => obj.id === product.id).length === 0){
       if (cart.includes(product)){
         setSelectedProduct(updatedProductQuant)
       } else {
@@ -80,56 +84,9 @@ debugger;
 
       
     }
-  //   setSelectedProduct(product)
-  //   setCart(currentCart => [...currentCart, updatedProductQuant])
-  // } else if (temporaryCart.includes(product)){
-  //   if (cart.includes(product)) else {}
-  // }
-
-
-  //   if (cart.includes(product)) {
-  //     console.log("cart INCLUDES PRODUCT, UPDATE QUANT ONLY")
-  //     setSelectedProduct(product)
-  //   } else if (temporaryCart.includes(product)){
-  //     console.log("cart DOESN'T INCLUDE PRODUCT, temp DOES INCLUDE, UPDATE QUANT ONLY :")
-  //     setSelectedProduct(product)
-  //   } else if (!temporaryCart.includes(product)) {
-        
-  //   }
-
-  //   console.log("cart DOESN'T INCLUDE PRODUCT, TEMP CART DOES INCLUDE, :")
-
   }
-  //   if (!cart.includes(product)) {
-  //     setSelectedProduct(product)
-  //     setCart(currentCart => [...currentCart, updatedProductQuant])
-
-
-      
-  //   } else if (!cart.includes(product)) {
-  //     setSelectedProduct(product)
-  //     setCart(currentCart => [...currentCart, updatedProductQuant])
-  //     console.log("updated quant inside if statement for initial set not in db.json cart:", updatedProductQuant)
-  //   }
-  //   else {
-  //     setSelectedProduct(updatedProductQuant)
-  //     console.log("updated quant inside else statement:", updatedProductQuant)
-  //   }
-  // }
-
-  // useEffect(() => {
-
-  // }, [])
 
   
-  // set initial cart without any action
-const productsInCart = 
-    productsList.filter(product => product.in_cart > 0)
-
-  useEffect(() => {
-    setCart(productsInCart);
-  }, [productsList])
-
 
 
 const handleRemoveClick = (product) => {

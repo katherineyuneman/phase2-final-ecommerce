@@ -5,7 +5,7 @@ const ProductCard = ({handleAddClick, product}) => {
   const [ countItemClick, setCountItemClick ] = useState(0)
 
   useEffect (() => {
-    
+  
   setCountItemClick(countItemClick + 1)
   }, [handleAddClick])
   
