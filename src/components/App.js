@@ -56,30 +56,45 @@ function App() {
     console.log(product)
     console.log(productsList, cartList)
 
+    const foundCartItem = cartList.filter(item => item.product_id === product.id)
+    if (foundCartItem.length === 0){
+      const addToCartList = {
+        product_id: product.id,
+        quantity: 1
+      }
 
-  
-    
+      fetch(`http://localhost:3000/cart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+      },
+      body:JSON.stringify(addToCartList)
+    })
+      .then(resp =>  resp.json())
+      .then(addedObject => console.log(addedObject))
+      // .then(newItem => setTempCartItem(tempCartItem.map(item => newItem.id === item.id ? newItem : item)))
+      .catch(err => alert(err))
+    }
 
     // setTempCartList(previousCartList => [...previousCartList, {id:0, product_id: product.id, quantity: 1}])
     // console.log(tempCartList)
     // // 
     
-    const findProductId = !!tempCartList.find(item => item.product_id === product.id)
+    // const findProductId = !!tempCartList.find(item => item.product_id === product.id)
 
-    setTempCartList(previousCartList =>[...previousCartList])
-    if (!findProductId) {
-      setTempCartList(previousCartList =>[...cartList, ...previousCartList, {id:0, product_id: product.id, quantity: 1}])
-    }
+    // setTempCartList(previousCartList =>[...previousCartList])
+    // if (!findProductId) {
+    //   setTempCartList(previousCartList =>[...cartList, ...previousCartList, {id:0, product_id: product.id, quantity: 1}])
+    // }
     
-    else {
-      console.log("true")
-      setTempCartList(previousCartList =>[...cartList, ...previousCartList, {id:0, product_id: product.id, quantity:previousCartList.quantity+1}]
-        )
-    }
+    // else {
+    //   console.log("true")
+    //   setTempCartList(previousCartList =>[...cartList, ...previousCartList, {id:0, product_id: product.id, quantity:previousCartList.quantity+1}]
+    //     )
+    // }
     
    
 
-    console.log(tempCartList)
     
   }
 
