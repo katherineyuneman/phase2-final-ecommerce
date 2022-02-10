@@ -1,4 +1,21 @@
 {
+  "cart": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "product_id": 2,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "product_id": 3,
+      "quantity": 1
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -9,7 +26,7 @@
       "price_per_unit": 5.99,
       "units": "1 lb",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 4
     },
     {
       "id": 2,
@@ -20,7 +37,7 @@
       "price_per_unit": 1.99,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 1
     },
     {
       "id": 3,
@@ -31,7 +48,7 @@
       "price_per_unit": 2.25,
       "units": "1 bunch",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 5
     },
     {
       "id": 4,
@@ -42,7 +59,7 @@
       "price_per_unit": 2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 1
     },
     {
       "id": 5,
@@ -53,7 +70,7 @@
       "price_per_unit": 2.2,
       "units": "1 item",
       "department": "Produce",
-      "in_cart": 0
+      "in_cart": 1
     },
     {
       "id": 6,

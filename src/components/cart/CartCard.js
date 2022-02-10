@@ -1,7 +1,9 @@
 import { useState , useEffect} from "react"
 
-const CartCard = ({handleRemoveClick, cartItem, selectedProduct, productQuantity}) => {
+const CartCard = ({tempCartItem,handleRemoveClick, cartItem, selectedProduct, productQuantity}) => {
+  console.log("///////temp cart item", tempCartItem)
   console.log("cart in cartcard:", cartItem)
+  console.log("selectedProduct:", selectedProduct)
   // {console.log("products inside cart:", product)}
 
   return (

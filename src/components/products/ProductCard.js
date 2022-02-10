@@ -2,7 +2,12 @@ import { useEffect, useState } from "react"
 
 const ProductCard = ({handleAddClick, product}) => {
 
+  const [ countItemClick, setCountItemClick ] = useState(0)
 
+  useEffect (() => {
+
+  setCountItemClick(countItemClick + 1)
+  }, [handleAddClick])
   
  
   return (
@@ -19,7 +24,7 @@ const ProductCard = ({handleAddClick, product}) => {
         {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         
 
-      <button className="add" onClick={() => handleAddClick(product)}>Add to Cart</button>
+      <button className="add" onClick={() => handleAddClick(product, countItemClick)}>Add to Cart</button>
     </div>
   )
 }

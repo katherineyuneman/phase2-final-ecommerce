@@ -2,7 +2,12 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 
-const CartContainer = ({cart, selectedProduct, productQuantity, handleRemoveClick}) => {
+const CartContainer = ({tempCartItem, cart, selectedProduct, productQuantity, handleRemoveClick}) => {
+
+  useEffect(() => {
+    console.error("useEffect")
+
+  },[])
   // console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
 
   // const [ newProductQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
@@ -33,7 +38,7 @@ const CartContainer = ({cart, selectedProduct, productQuantity, handleRemoveClic
 // console.log("cart:",cart)
 console.log("full cart array in cartContainer:", cart)
 const eachProductInCart =  
-cart.map(cartItem => <CartCard key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
+cart.map(cartItem => <CartCard tempCartItem={tempCartItem} key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
 
 
 
