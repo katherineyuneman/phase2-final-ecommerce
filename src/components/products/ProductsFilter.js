@@ -1,10 +1,8 @@
 import { useState } from "react/cjs/react.development"
 
-const ProductsFilter = () => {
+const ProductsFilter = ({handleDeptOnChange}) => {
 
-  function handleDeptOnChange (e) {
-    console.log(e.target.value)
-  }
+  
   return (
     <div>
       <span>

@@ -2,12 +2,12 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 
-const CartContainer = ({tempCartItem, cart, selectedProduct, productQuantity, handleRemoveClick}) => {
+const CartContainer = ({}) => {
 
-  useEffect(() => {
-    console.error("useEffect")
+  // useEffect(() => {
+  //   console.error("useEffect")
 
-  },[])
+  // },[])
   // console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
 
   // const [ newProductQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
@@ -35,19 +35,19 @@ const CartContainer = ({tempCartItem, cart, selectedProduct, productQuantity, ha
 
 
 
-// console.log("cart:",cart)
-console.log("full cart array in cartContainer:", cart)
-const eachProductInCart =  
-cart.map(cartItem => <CartCard tempCartItem={tempCartItem} key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
+// // console.log("cart:",cart)
+// console.log("full cart array in cartContainer:", cart)
+// const eachProductInCart =  
+// cart.map(cartItem => <CartCard tempCartItem={tempCartItem} key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
 
 
 
   return (
     <div>
-      <h2>Cart</h2>
+      {/* <h2>Cart</h2>
       <div style={{display:"flex", flexWrap:"wrap"}}>
         {cart.length > 0 ? eachProductInCart : <div><h4>Your cart is empty!</h4></div>}
-      </div>
+      </div> */}
     </div>
   )
 }
