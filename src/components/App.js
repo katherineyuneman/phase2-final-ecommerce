@@ -12,9 +12,9 @@ function App() {
   const [ removeProduct, setRemoveProduct ] = useState({})
   const [ productQuantity, setProductQuantity ] = useState(0)
   const [ temporaryCart, setTemporaryCart ] = useState([])
-  const [ arrayClickedObjects, setArrayClickedObjects ] = useState([])
-  const [ countClicks, setCountClicks ] = useState(0)
-  const [ tempCartItem, setTempCartItem] = useState([])
+  // const [ arrayClickedObjects, setArrayClickedObjects ] = useState([])
+  // const [ countClicks, setCountClicks ] = useState(0)
+  const [ cartFetch, setCartFetch] = useState([])
 
   const fetchData = async () => {
     try {
@@ -32,7 +32,7 @@ function App() {
       const resp = await fetch("http://localhost:3000/cart")
       const data = await resp.json()
 
-      setTempCartItem(data)
+      setCartFetch(data)
     } catch (error) {
        alert(error)
       }
@@ -45,22 +45,22 @@ function App() {
     fetchCart();
   }, [])
   console.log("-----------------------------------------------------------------------------")
-  console.log(tempCartItem)
+  console.log("fetched Cart:", cartFetch)
   console.log("-----------------------------------------------------------------------------")
 
-  // set initial cart without any action
-const productsInCart = 
-productsList.filter(product => product.in_cart > 0)
+//   // set initial cart without any action
+// const productsInCart = 
+// productsList.filter(product => product.in_cart > 0)
 
-useEffect(() => {
-setCart(productsInCart);
-}, [productsList])
+// useEffect(() => {
+// setCart(productsInCart);
+// }, [productsList])
 
 
   const handleAddClick = (product) => {
-    const cItem = tempCartItem.find(item => item.product_id === product.id)
+    const cItem = cartFetch.find(item => item.product_id === product.id)
     console.log("-----------------------------------------------------------------------------")
-    console.log("cartitemclick:", cItem)
+    console.log("cItem click:", cItem)
     console.log("-----------------------------------------------------------------------------")
 
 
@@ -74,7 +74,7 @@ setCart(productsInCart);
     })
   })
     .then(resp =>  resp.json())
-    .then(newItem => setTempCartItem(tempCartItem.map(item => newItem.id === item.id ? newItem : item)))
+    .then(newItem => setCartFetch(cartFetch.map(item => newItem.id === item.id ? newItem : item)))
     .catch(err => alert(err))
 
 
@@ -83,6 +83,8 @@ setCart(productsInCart);
 
     // console.log("props product:", product, "props timesClicked:", countItemClick)
     // setCountItemClick(countItemClick => countItemClick + 1)
+
+
     const updatedQuantity = product.in_cart + 1
     console.log("updated quantity:", updatedQuantity)
     setProductQuantity(updatedQuantity)

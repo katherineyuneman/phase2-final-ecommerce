@@ -2,12 +2,19 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 
-const CartContainer = ({tempCartItem, cart, selectedProduct, productQuantity, handleRemoveClick}) => {
+const CartContainer = ({productsList, tempCartItem, cart, selectedProduct, productQuantity, handleRemoveClick, }) => {
+  const [ cartFetch, setCartFetch] = useState([])
 
+  
   useEffect(() => {
-    console.error("useEffect")
+    fetch ('http://localhost:3000/cart')
+    .then(response => response.json())
+    .then(data => setCartFetch(data))
+    .catch(err => alert(err))
+  },[selectedProduct])
 
-  },[])
+
+  // console.log("cartFetch within CartContainer :", cartFetch)
   // console.log("SELECTED PRODUCT:", selectedProduct.in_cart)
 
   // const [ newProductQuantity, setProductQuantity ] = useState(selectedProduct.in_cart)
@@ -36,9 +43,25 @@ const CartContainer = ({tempCartItem, cart, selectedProduct, productQuantity, ha
 
 
 // console.log("cart:",cart)
-console.log("full cart array in cartContainer:", cart)
-const eachProductInCart =  
-cart.map(cartItem => <CartCard tempCartItem={tempCartItem} key={cartItem.id} cartItem={cartItem} productQuantity={productQuantity} handleRemoveClick={handleRemoveClick} selectedProduct={selectedProduct} />)
+// console.log("full cart array in cartContainer from fetch:", cartFetch)
+
+
+
+
+let productCartFilter = productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
+
+console.log("product cart filter:", productCartFilter)
+
+  // (product.id === cartItem.product_id ? <CartCard key={cartItem.product_id} cartItem={cartItem}/> : console.log(product.id, cartItem.product_id))))
+  // console.log("product cart filter:", productCartFilter)
+
+
+//   cartFetch.filter(cartItem => cartItem.product_id === product.id)
+// );
+
+// console.log("product cart filter:", productCartFilter)
+
+const eachProductInCart = productCartFilter.map(cartProduct => <CartCard key={cartProduct.product_id} cartProduct={cartProduct}/>)
 
 
 
@@ -46,7 +69,7 @@ cart.map(cartItem => <CartCard tempCartItem={tempCartItem} key={cartItem.id} car
     <div>
       <h2>Cart</h2>
       <div style={{display:"flex", flexWrap:"wrap"}}>
-        {cart.length > 0 ? eachProductInCart : <div><h4>Your cart is empty!</h4></div>}
+        {eachProductInCart}
       </div>
     </div>
   )
