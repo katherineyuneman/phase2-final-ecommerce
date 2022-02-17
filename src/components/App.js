@@ -90,15 +90,15 @@ useEffect(() => {
 
 
  const handleRemoveClick = (cartProduct) => {
-   
+   console.log("hi")
   const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
   console.log(removedItem.quantity - 1)
   setSelectedRemoval({...removedItem, quantity: (removedItem.quantity - 1)})
   console.log("removed item", removedItem.product_id, removedItem.quantity)
 
+  if (removedItem.quantity >= 2){
 
-  console.log(removedItem)
-  removedItem && fetch(`http://localhost:3000/cart/${removedItem.id}`, {
+  fetch(`http://localhost:3000/cart/${removedItem.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
@@ -112,7 +112,22 @@ useEffect(() => {
   .catch(err => alert(err))
   
   console.log("selected removal:", selectedRemoval)
+
+  } else if (removedItem.quantity < 2){
+    console.log("inside the 0 territory")
+    fetch(`http://localhost:3000/cart/${removedItem.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+  },
+  body:JSON.stringify(removedItem)
+})
+  .then(resp =>  resp.json())
+  .then(removedItem => console.log(removedItem))
+  .catch(err => alert(err))
   
+  console.log("selected removal:", selectedRemoval)
+  }
  }
 
   return (

@@ -72,8 +72,16 @@ const CartCard = ({selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) 
 //    quantityInCart = newCart.map(item => (item.product_id === cartProduct.id ? item.quantity : null))
 //  }
 
+// let quantityInCart
+// if (selectedRemoval.product_id === cartProduct.id) {
+//   return quantityInCart=selectedRemoval.quantity
+// } else { cartFetch.map(item => {
+//   if (item.product_id === cartProduct.id){
+//     return quantityInCart = item.quantity
+//   }
+// })}
 
-      
+
 
   return (
     <div style={{border: "solid", width:"100px", margin: "auto", height:"350px", padding:".5em"}}>
@@ -84,7 +92,7 @@ const CartCard = ({selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) 
         ${cartProduct.price_per_unit.toFixed(2)} / {cartProduct.units}
         <br/>
         {cartProduct.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
-        Quantity in Cart: 
+        Quantity in Cart:
         {selectedRemoval.product_id === cartProduct.id ? selectedRemoval.quantity : cartFetch.map(item => (item.product_id === cartProduct.id ? item.quantity : null))}
         <br/>
         Total Cost: ${cartFetch.map(item => (item.product_id === cartProduct.id ? (item.quantity * cartProduct.price_per_unit).toFixed(2) : null) )}
