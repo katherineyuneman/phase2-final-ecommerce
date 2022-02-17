@@ -5,7 +5,7 @@ import { ProductCard } from '../components/products/ProductCard';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 
-const InventoryContainer = ({tempCartItem,productQuantity, productsList, cart, selectedProduct, removeProduct, handleAddClick, handleRemoveClick}) => {
+const InventoryContainer = ({selectedRemoval, handleRemoveClick, productsList, cart, selectedProduct, handleAddClick}) => {
 
  
   // console.log("SELECTED PRODUCT:", productQuantity, selectedProduct, selectedProduct.in_cart)
@@ -88,10 +88,10 @@ const InventoryContainer = ({tempCartItem,productQuantity, productsList, cart, s
             <ProductCard />
           </Route>
           <Route path ="/products">
-            <ProductsContainer productsList={productsList} handleAddClick={handleAddClick} productQuantity={productQuantity} />
+            <ProductsContainer productsList={productsList} handleAddClick={handleAddClick}/>
           </Route>
           <Route path ="/cart">
-            <CartContainer productsList={productsList} tempCartItem={tempCartItem} cart={cart} selectedProduct={selectedProduct} handleRemoveClick={handleRemoveClick} productQuantity={productQuantity}/>
+            <CartContainer selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} handleRemoveClick={handleRemoveClick}/>
           </Route>
         </Switch>
       </Router>

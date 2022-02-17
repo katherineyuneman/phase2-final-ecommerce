@@ -9,10 +9,9 @@ function App() {
   const [ selectedProduct, setSelectedProduct ] = useState({})
   const [ productsList, setProductsList ] = useState([])
   const [ cart, setCart ] = useState([])
-  const [ removeProduct, setRemoveProduct ] = useState({})
-  const [ productQuantity, setProductQuantity ] = useState(0)
   const [ temporaryCart, setTemporaryCart ] = useState([])
   const [ cartFetch, setCartFetch] = useState([])
+  const [ selectedRemoval, setSelectedRemoval ] = useState({})
 
   const fetchData = async () => {
     try {
@@ -45,14 +44,14 @@ function App() {
 useEffect(() => {
   fetchCart();
   console.log("re-rendered the cart fetch")
- },[temporaryCart])
+ },[temporaryCart, selectedRemoval])
 
 
   const handleAddClick = (product) => {
     // exists in actual cart?
     const cItem = cartFetch.find(item => item.product_id === product.id)
 
-    console.log(!!cItem)
+    console.log("citem:", cItem)
     cItem && fetch(`http://localhost:3000/cart/${cItem.id}`, {
       method: 'PATCH',
       headers: {
@@ -89,15 +88,36 @@ useEffect(() => {
         }
 }
 
-const handleRemoveClick = (product) => {
-  setRemoveProduct(product)
-  setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id && removeItem.in_cart === 0))
-}
+
+ const handleRemoveClick = (cartProduct) => {
+   
+  const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
+  // setSelectedRemoval(removedItem)
+  console.log("removed item", removedItem.product_id, removedItem.quantity)
+
+
+  console.log(removedItem)
+  removedItem && fetch(`http://localhost:3000/cart/${removedItem.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+  },
+  body:JSON.stringify({
+    "quantity": removedItem.quantity - 1
+  })
+})
+  .then(resp =>  resp.json())
+  .then(newItem => setCartFetch(cartFetch.map(item => newItem.id === item.id ? newItem : item)))
+  .catch(err => alert(err))
+  
+  console.log("selected removal:", cartFetch)
+
+ }
 
   return (
     <div className="App">
       <Router>
-        <InventoryContainer productsList={productsList} productQuantity={productQuantity} cart={cart} selectedProduct={selectedProduct} removeProduct={removeProduct} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick}/>
+        <InventoryContainer selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} selectedProduct={selectedProduct} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick}/>
       </Router>
     </div>
   );
