@@ -5,8 +5,6 @@ import ProductsSearch from "../components/products/ProductsSearch";
 
 const ProductsContainer = ({productsList, handleAddClick}) => {
 
-  // console.log("product container list:", productsList)
-
   const [ selectedDepartment, setSelectedDepartment] = useState("all")
 
   function handleDeptOnChange (e) {
@@ -15,10 +13,8 @@ const ProductsContainer = ({productsList, handleAddClick}) => {
     
   }
 
-  // console.log("selectedDepartment:", selectedDepartment)
 
   const filteredProductsList = productsList.filter(filterProducts => filterProducts.department.toLowerCase() === selectedDepartment.toLowerCase())
-// console.log("filteredProductsList:", filteredProductsList)
 
   return (
     <div>

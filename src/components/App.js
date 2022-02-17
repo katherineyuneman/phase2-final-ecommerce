@@ -90,12 +90,10 @@ useEffect(() => {
 
 
  const handleRemoveClick = (cartProduct) => {
-   console.log("hi")
-  const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
-  console.log(removedItem.quantity - 1)
-  setSelectedRemoval({...removedItem, quantity: (removedItem.quantity - 1)})
-  console.log("removed item", removedItem.product_id, removedItem.quantity)
 
+  const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
+  setSelectedRemoval({...removedItem, quantity: (removedItem.quantity - 1)})
+  
   if (removedItem.quantity >= 2){
 
   fetch(`http://localhost:3000/cart/${removedItem.id}`, {
