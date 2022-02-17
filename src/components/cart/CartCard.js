@@ -2,6 +2,7 @@ import { useState , useEffect} from "react"
 
 const CartCard = ({eachProductsData, tempCartItem, cartFetch, cartProduct, selectedProduct, productQuantity}) => {
   
+  console.log("cart product combo:", cartProduct)
   // console.log("///combined cart in cartcard:", cartItem)
   
   // console.log("///////temp cart item", tempCartItem)
@@ -9,7 +10,7 @@ const CartCard = ({eachProductsData, tempCartItem, cartFetch, cartProduct, selec
   // console.log("selectedProduct:", selectedProduct)
   // {console.log("products inside cart:", product)}
 
-//  const itemQuantity = cartFetch.forEach(cartItem => cartItem.quantity)
+ 
 
   return (
     <div style={{border: "solid", width:"100px", margin: "auto", height:"350px", padding:".5em"}}>
@@ -20,8 +21,8 @@ const CartCard = ({eachProductsData, tempCartItem, cartFetch, cartProduct, selec
         ${cartProduct.price_per_unit.toFixed(2)}
         {cartProduct.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         Quantity in Cart: 
-        {/* {itemQuantity} */}
-        }
+        {cartFetch.map(item => (item.product_id === cartProduct.id ? item.quantity : null) )}
+        
         
         
       <button >Remove from Cart</button>

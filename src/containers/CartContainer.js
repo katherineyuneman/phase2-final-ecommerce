@@ -46,11 +46,15 @@ const CartContainer = ({productsList, tempCartItem, cart, selectedProduct, produ
 // console.log("full cart array in cartContainer from fetch:", cartFetch)
 
 
-
-
 let productCartFilter = productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
+// let productCartFilterQuantity = productCartFilter.map(product => ({...product, quantity: Object.values((cartFetch.map(cartItem => {
+//   if (cartItem.product_id === product.id){
+//     console.log("cart item quantity", cartItem.quantity)
+//     return cartItem.quantity
+//   } else 0
+// })))}))
 
-console.log("product cart filter:", productCartFilter)
+// console.log("product cart filter:", productCartFilterQuantity)
 
   // (product.id === cartItem.product_id ? <CartCard key={cartItem.product_id} cartItem={cartItem}/> : console.log(product.id, cartItem.product_id))))
   // console.log("product cart filter:", productCartFilter)
@@ -61,7 +65,7 @@ console.log("product cart filter:", productCartFilter)
 
 // console.log("product cart filter:", productCartFilter)
 
-const eachProductInCart = productCartFilter.map(cartProduct => <CartCard key={cartProduct.product_id} cartProduct={cartProduct}/>)
+const eachProductInCart = productCartFilter.map(cartProduct => <CartCard key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
 
 
