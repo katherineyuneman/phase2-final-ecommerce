@@ -73,7 +73,9 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard key={ca
     <div>
       <h2>Cart</h2>
       <div style={{display:"flex", flexWrap:"wrap"}}>
+        {/* {productCartFilter.length > 0 ? {eachProductInCart} : "Your cart is empty!"} */}
         {eachProductInCart}
+        
       </div>
     </div>
   )

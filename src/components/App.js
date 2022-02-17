@@ -12,8 +12,6 @@ function App() {
   const [ removeProduct, setRemoveProduct ] = useState({})
   const [ productQuantity, setProductQuantity ] = useState(0)
   const [ temporaryCart, setTemporaryCart ] = useState([])
-  // const [ arrayClickedObjects, setArrayClickedObjects ] = useState([])
-  // const [ countClicks, setCountClicks ] = useState(0)
   const [ cartFetch, setCartFetch] = useState([])
 
   const fetchData = async () => {
@@ -26,7 +24,6 @@ function App() {
       }
   }
 
-
   const fetchCart = async () => {
     try {
       const resp = await fetch("http://localhost:3000/cart")
@@ -38,32 +35,24 @@ function App() {
       }
   }
 
-
-
   useEffect(() => {
     fetchData();
     fetchCart();
   }, [])
-  console.log("-----------------------------------------------------------------------------")
-  console.log("fetched Cart:", cartFetch)
-  console.log("-----------------------------------------------------------------------------")
 
-//   // set initial cart without any action
-// const productsInCart = 
-// productsList.filter(product => product.in_cart > 0)
 
-// useEffect(() => {
-// setCart(productsInCart);
-// }, [productsList])
+
+useEffect(() => {
+  fetchCart();
+  console.log("re-rendered the cart fetch")
+ },[temporaryCart])
 
 
   const handleAddClick = (product) => {
+    // exists in actual cart?
     const cItem = cartFetch.find(item => item.product_id === product.id)
-    console.log("-----------------------------------------------------------------------------")
-    console.log("cItem click:", cItem)
-    console.log("-----------------------------------------------------------------------------")
 
-
+    console.log(!!cItem)
     cItem && fetch(`http://localhost:3000/cart/${cItem.id}`, {
       method: 'PATCH',
       headers: {
@@ -77,65 +66,33 @@ function App() {
     .then(newItem => setCartFetch(cartFetch.map(item => newItem.id === item.id ? newItem : item)))
     .catch(err => alert(err))
 
-
-
-
-
-    // console.log("props product:", product, "props timesClicked:", countItemClick)
-    // setCountItemClick(countItemClick => countItemClick + 1)
-
-
-    const updatedQuantity = product.in_cart + 1
-    console.log("updated quantity:", updatedQuantity)
-    setProductQuantity(updatedQuantity)
-    const updatedProductQuant = {...product, in_cart: updatedQuantity}
-    console.log("updated product with quant:", updatedProductQuant)
-
-    setTemporaryCart(currentTempCart => [...currentTempCart, updatedProductQuant])
-
-  
-
-    fetch(`http://localhost:3000/products/${product.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-      "in_cart": product.in_cart + 1
-    })
-  })
-    .then(resp =>  resp.json())
-    // .then(addedProduct => console.log("patched product:", addedProduct))
-    .catch(err => alert(err))
-
-    
-
-    setTemporaryCart(currentTempCart => [...currentTempCart, updatedProductQuant])
-  if (temporaryCart.filter(obj => obj.id === product.id).length > 0){
-    console.log("temporary cart:", temporaryCart)
-    if (cart.includes(product)){
-      setSelectedProduct(updatedProductQuant)
-    } else {
-      console.log("hitting this one so why isn't it updating the product??")
-      setSelectedProduct(updatedProductQuant)
-      // setCart(currentCart => [...currentCart, updatedProductQuant])
-    } 
-  } else if (temporaryCart.filter(obj => obj.id === product.id).length === 0){
-      if (cart.includes(product)){
-        setSelectedProduct(updatedProductQuant)
-      } else {
-      setSelectedProduct(updatedProductQuant)
-      setCart(currentCart => [...currentCart, updatedProductQuant])
-    }
-  }
+    // does not exist in actual cart
+    const tempCItem = temporaryCart.find(item => item.product_id === product.id)
+   if (!!cItem === false && !!tempCItem === false){
+     const newTempObj = {
+        "product_id": product.id
+     }
+     setTemporaryCart([...temporaryCart, newTempObj])
+        fetch('http://localhost:3000/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body:JSON.stringify({
+            "product_id": product.id,
+            "quantity": 1
+          })
+          })
+          .then(resp =>  resp.json())
+          .then(newlyAddedPost => console.log(newlyAddedPost))
+          .catch(err => alert(err))
+        }
 }
-
 
 const handleRemoveClick = (product) => {
   setRemoveProduct(product)
   setCart(currentCart => currentCart.filter(removeItem => product.id !== removeItem.id && removeItem.in_cart === 0))
 }
-
 
   return (
     <div className="App">
