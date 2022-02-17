@@ -85,7 +85,7 @@ const CartCard = ({selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) 
         <br/>
         {cartProduct.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         Quantity in Cart: 
-        {/* {quantityInCart} */}
+        {selectedRemoval.product_id === cartProduct.id ? selectedRemoval.quantity : cartFetch.map(item => (item.product_id === cartProduct.id ? item.quantity : null))}
         <br/>
         Total Cost: ${cartFetch.map(item => (item.product_id === cartProduct.id ? (item.quantity * cartProduct.price_per_unit).toFixed(2) : null) )}
         

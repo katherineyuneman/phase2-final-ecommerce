@@ -92,7 +92,8 @@ useEffect(() => {
  const handleRemoveClick = (cartProduct) => {
    
   const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
-  // setSelectedRemoval(removedItem)
+  console.log(removedItem.quantity - 1)
+  setSelectedRemoval({...removedItem, quantity: (removedItem.quantity - 1)})
   console.log("removed item", removedItem.product_id, removedItem.quantity)
 
 
@@ -107,11 +108,11 @@ useEffect(() => {
   })
 })
   .then(resp =>  resp.json())
-  .then(newItem => setCartFetch(cartFetch.map(item => newItem.id === item.id ? newItem : item)))
+  .then(newItem => setCartFetch(oldCart => oldCart.map(item => newItem.id === item.id ? newItem : item)))
   .catch(err => alert(err))
   
-  console.log("selected removal:", cartFetch)
-
+  console.log("selected removal:", selectedRemoval)
+  
  }
 
   return (
