@@ -1,4 +1,7 @@
 import { ProductCard } from "./ProductCard"
+import styled from 'styled-components'
+
+
 const ProductsList = ({handleAddClick, productsList, filteredProductsList}) => {
 
 let mappingProducts
@@ -12,9 +15,16 @@ if (filteredProductsList.length === 0){
   return (
     <div>
       <h2>Products</h2>
-      <div style={{display:"flex", flexWrap:"wrap"}}>{mappingProducts}</div>
+      <Container>{mappingProducts}</Container>
     </div>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+// style={{display:"flex", flexWrap:"wrap"}}
 
 export default ProductsList;
