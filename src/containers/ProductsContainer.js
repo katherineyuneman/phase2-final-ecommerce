@@ -18,23 +18,29 @@ const ProductsContainer = ({productsList, handleAddClick}) => {
       const filtered = productsList.filter(filterProducts => filterProducts.department === event.target.value)
       setFilteredProductsList(filtered)
       console.log("filtered products from product container:", filteredProductsList)
-      
     }
   }
 
   
 console.log("filtered product list:", filteredProductsList)
 
-function handleSubmitSearch(trackText) {
+const handleSubmitSearch = (trackText) => {
   console.log(trackText)
+  const filtered = productsList.filter(filterProducts => filterProducts.name.toLowerCase().includes(trackText.toLowerCase()))
+  setFilteredProductsList(filtered)
 }
+
+const handleSearchReset = (event) => {
+  console.log(event.target.value)
+}
+
 
 
   return (
     <div>
       <span>
       <ProductsFilter handleChangeDept={handleChangeDept}/>
-      <ProductsSearch handleSubmitSearch={handleSubmitSearch}/></span>
+      <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/></span>
       
       <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>
     </div>

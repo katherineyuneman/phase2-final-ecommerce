@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductsSearch = ({handleSubmitSearch}) => {
+const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
 
   const [ trackText, setTrackText ] = useState("")
 
@@ -17,6 +17,8 @@ const ProductsSearch = ({handleSubmitSearch}) => {
       <label htmlFor="search">Search product name</label>
         <input type="text" onChange={handleSearchInputs}></input>
         <input type="submit" value="Search" />
+        <input type="button" value="Reset" onClick={(e) => handleSearchReset}/>
+        
       </form>
     </div>
   )
