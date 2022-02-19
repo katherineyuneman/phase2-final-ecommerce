@@ -1,7 +1,14 @@
 import { ProductCard } from "./ProductCard"
-const ProductsList = ({handleAddClick, productsList}) => {
+const ProductsList = ({handleAddClick, productsList, filteredProductsList}) => {
 
-  const mappingProducts = productsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
+let mappingProducts
+if (filteredProductsList.length === 0){
+  mappingProducts = productsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
+} else if (filteredProductsList.length > 0){
+  mappingProducts = filteredProductsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
+}
+
+  
   return (
     <div>
       <h2>Products</h2>

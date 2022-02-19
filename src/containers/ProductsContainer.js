@@ -5,21 +5,33 @@ import ProductsSearch from "../components/products/ProductsSearch";
 
 const ProductsContainer = ({productsList, handleAddClick}) => {
 
-  const [ selectedDepartment, setSelectedDepartment] = useState("all")
 
-  function handleDeptOnChange (e) {
-    console.log(e.target.value)
-    setSelectedDepartment(e.target.value)
-    
+  
+  const [ filteredProductsList, setFilteredProductsList ] = useState(productsList)
+
+  const handleChangeDept = (event) => {
+    console.log(event.target.value)
+    setFilteredProductsList(productsList)
+
+    if (event.target.value === "All"){
+      setFilteredProductsList(productsList)
+    } else {
+      console.log("inside else")
+      const filtered = productsList.filter(filterProducts => filterProducts.department === event.target.value)
+      setFilteredProductsList(filtered)
+      console.log("filtered products from product container:", filteredProductsList)
+      
+    }
   }
 
+  
+console.log("filtered product list:", filteredProductsList)
 
-  const filteredProductsList = productsList.filter(filterProducts => filterProducts.department.toLowerCase() === selectedDepartment.toLowerCase())
 
   return (
     <div>
-      <ProductsFilter handleDeptOnChange={handleDeptOnChange}/>
-      <ProductsList productsList={productsList} handleAddClick={handleAddClick}/>
+      <ProductsFilter handleChangeDept={handleChangeDept}/>
+      <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>
       
     </div>
   )

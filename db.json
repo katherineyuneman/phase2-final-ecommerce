@@ -1,14 +1,29 @@
 {
   "cart": [
     {
-      "product_id": 2,
-      "quantity": 2,
+      "product_id": 10,
+      "quantity": 1,
       "id": 1
     },
     {
-      "product_id": 3,
-      "quantity": 5,
+      "product_id": 7,
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "product_id": 9,
+      "quantity": 1,
       "id": 3
+    },
+    {
+      "product_id": 4,
+      "quantity": 3,
+      "id": 4
+    },
+    {
+      "product_id": 15,
+      "quantity": 2,
+      "id": 5
     }
   ],
   "products": [
@@ -108,7 +123,7 @@
       "inventory": 20,
       "price_per_unit": 5.5,
       "units": "dozen",
-      "department": "Dairy & Eggs",
+      "department": "Dairy + Eggs",
       "in_cart": 0
     },
     {
@@ -119,7 +134,7 @@
       "inventory": 10,
       "price_per_unit": 6.5,
       "units": "lb",
-      "department": "Dairy & Eggs",
+      "department": "Dairy + Eggs",
       "in_cart": 1
     },
     {
@@ -130,7 +145,7 @@
       "inventory": 17,
       "price_per_unit": 5.29,
       "units": "package",
-      "department": "Dairy & Eggs",
+      "department": "Dairy + Eggs",
       "in_cart": 0
     },
     {
@@ -141,7 +156,7 @@
       "inventory": 10,
       "price_per_unit": 5.99,
       "units": "1/2 gal",
-      "department": "Dairy & Eggs",
+      "department": "Dairy + Eggs",
       "in_cart": 0
     },
     {
@@ -152,7 +167,7 @@
       "inventory": 4,
       "price_per_unit": 11.49,
       "units": "lb",
-      "department": "Meat & Seafood",
+      "department": "Meat + Seafood",
       "in_cart": 0
     },
     {
@@ -163,7 +178,7 @@
       "inventory": 10,
       "price_per_unit": 6.49,
       "units": "lb",
-      "department": "Meat & Seafood",
+      "department": "Meat + Seafood",
       "in_cart": 1
     },
     {
@@ -174,7 +189,7 @@
       "inventory": 4,
       "price_per_unit": 2,
       "units": "lb",
-      "department": "Dry Goods & Pasta",
+      "department": "Dry Goods + Pasta",
       "in_cart": 1
     },
     {
@@ -185,7 +200,7 @@
       "inventory": 14,
       "price_per_unit": 1.5,
       "units": "28 oz",
-      "department": "Dry Goods & Pasta",
+      "department": "Dry Goods + Pasta",
       "in_cart": 0
     }
   ]
