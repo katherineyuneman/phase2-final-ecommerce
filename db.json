@@ -17,13 +17,18 @@
     },
     {
       "product_id": 4,
-      "quantity": 3,
+      "quantity": 2,
       "id": 4
     },
     {
       "product_id": 15,
       "quantity": 2,
       "id": 5
+    },
+    {
+      "product_id": 1,
+      "quantity": 1,
+      "id": 6
     }
   ],
   "products": [

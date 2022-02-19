@@ -5,8 +5,6 @@ import ProductsSearch from "../components/products/ProductsSearch";
 
 const ProductsContainer = ({productsList, handleAddClick}) => {
 
-
-  
   const [ filteredProductsList, setFilteredProductsList ] = useState(productsList)
 
   const handleChangeDept = (event) => {
@@ -27,12 +25,18 @@ const ProductsContainer = ({productsList, handleAddClick}) => {
   
 console.log("filtered product list:", filteredProductsList)
 
+function handleSubmitSearch(trackText) {
+  console.log(trackText)
+}
+
 
   return (
     <div>
+      <span>
       <ProductsFilter handleChangeDept={handleChangeDept}/>
-      <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>
+      <ProductsSearch handleSubmitSearch={handleSubmitSearch}/></span>
       
+      <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>
     </div>
   )
 }
