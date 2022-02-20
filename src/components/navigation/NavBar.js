@@ -1,38 +1,35 @@
 import { NavLink } from 'react-router-dom'
+import { Header} from "../../styled-components/styleIndex"
 
-const linkStyle = {
-  width: "100%",
-  margin: "5% 0 1%",
-  padding: "1em",
-  color: "black",
-  backgroundColor: "rgb(2555,120,44)",
-  fontWeight: "bold",
+// const linkStyle = {
+//   width: "100%",
+//   margin: "5% 0 1%",
+//   padding: "1em",
+//   color: "black",
+//   backgroundColor: "#8DA878",
+//   fontWeight: "bold"
 
-}
+// }
 
 const NavBar = () => {
   return (
-    <div>
-      <NavLink
-      activeStyle={{
-        fontWeight: "bolder",
-        color: "red"
-      }}
-        exact
-        style={linkStyle}
-        to="/"
+    <div className='nav-wrapper'>
+      <Header>
+        <h1>Grocery Store</h1>
+        <nav>
 
-      >
+        <NavLink
+          exact
+          // style={linkStyle}
+          to="/"
+
+        >
         Home
       </NavLink>
 
       <NavLink
-      activeStyle={{
-        fontWeight: "bolder",
-        color: "red"
-      }}
         exact
-        style={linkStyle}
+        // style={linkStyle}
         to="/products"
 
       >
@@ -40,19 +37,16 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-      activeStyle={{
-        fontWeight: "bolder",
-        color: "red"
-      }}
+      
         exact
-        style={linkStyle}
+        // style={linkStyle}
         to="/cart"
 
       >
         Cart
       </NavLink>
-
-
+      </nav>
+    </Header>
     </div>
   )
 }
