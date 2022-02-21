@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ProductsFilter from "../components/products/ProductsFilter";
 import ProductsList from "../components/products/ProductsList";
 import ProductsSearch from "../components/products/ProductsSearch";
+import { ProductFeatureContainer } from "../styled-components/styleIndex";
+
 
 const ProductsContainer = ({productsList, handleAddClick}) => {
 
@@ -38,9 +40,10 @@ const handleSearchReset = (event) => {
 
   return (
     <div>
-      <span>
+      <ProductFeatureContainer>
       <ProductsFilter handleChangeDept={handleChangeDept}/>
-      <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/></span>
+      <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/>
+      </ProductFeatureContainer>
       
       <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>
     </div>

@@ -17,14 +17,14 @@ const NavBar = () => {
       <Header>
         <h1>Grocery Store</h1>
         <nav>
-
         <NavLink
           exact
           // style={linkStyle}
           to="/"
 
-        >
+        ><li>
         Home
+        </li>
       </NavLink>
 
       <NavLink
@@ -33,7 +33,9 @@ const NavBar = () => {
         to="/products"
 
       >
+       <li>
         Products
+        </li>
       </NavLink>
 
       <NavLink
@@ -43,7 +45,9 @@ const NavBar = () => {
         to="/cart"
 
       >
+       <li>
         Cart
+        </li>
       </NavLink>
       </nav>
     </Header>

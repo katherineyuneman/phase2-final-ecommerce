@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Card} from "../../styled-components/styleIndex"
+import { Card } from "../../styled-components/styleIndex"
 
 const ProductCard = ({handleAddClick, product}) => {
 
@@ -9,17 +9,17 @@ const ProductCard = ({handleAddClick, product}) => {
     <Card>
      <h5>{product.department}</h5>
       <h3>{product.name}</h3>
-      <img src={product.image} alt="test" style={{display:"flex", width:"100px", flexWrap:"wrap"}}/>
+      <img src={product.image} alt="test" />
       <h4>{product.brand}</h4>
       <h6>
-        ${product.price_per_unit.toFixed(2)}
+        ${product.price_per_unit.toFixed(2)} /
           <br/>
         {product.units}
         </h6>
-        {product.inventory < 5 ? <h4 style={{backgroundColor:"red", color:"white"}}>Low Stock!</h4> : null}
         
 
       <button className="add" onClick={() => handleAddClick(product)}>Add to Cart</button>
+      {product.inventory < 5 ? <h4 className="stock">Low Stock!</h4> : null}
     </Card>
   )
 }
