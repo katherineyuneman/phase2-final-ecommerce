@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 
-const CartContainer = ({selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
+const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
 
   
@@ -19,7 +19,7 @@ let productCartFilter = productsList.filter(product => cartFetch.some(cartItem =
 
 
 
-const eachProductInCart = productCartFilter.map(cartProduct => <CartCard selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
+const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
 
 
@@ -28,6 +28,7 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard selecte
   return (
     <div>
       <h2>Cart</h2>
+      Totals:
       <div style={{display:"flex", flexWrap:"wrap"}}>
         {/* {productCartFilter.length > 0 ? {eachProductInCart} : "Your cart is empty!"} */}
         {eachProductInCart}

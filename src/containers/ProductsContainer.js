@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ProductsFilter from "../components/products/ProductsFilter";
 import ProductsList from "../components/products/ProductsList";
 import ProductsSearch from "../components/products/ProductsSearch";
-import { ProductFeatureContainer } from "../styled-components/styleIndex";
+import { ProductFeatureContainer, DropDown, SearchStyle } from "../styled-components/styleIndex";
 
 
 const ProductsContainer = ({productsList, handleAddClick}) => {
@@ -41,8 +41,12 @@ const handleSearchReset = (event) => {
   return (
     <div>
       <ProductFeatureContainer>
-      <ProductsFilter handleChangeDept={handleChangeDept}/>
-      <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/>
+        <DropDown>
+          <ProductsFilter handleChangeDept={handleChangeDept}/>
+        </DropDown>
+        <SearchStyle>
+          <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/>
+        </SearchStyle>
       </ProductFeatureContainer>
       
       <ProductsList filteredProductsList={filteredProductsList} productsList={productsList} handleAddClick={handleAddClick}/>

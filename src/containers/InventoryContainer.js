@@ -5,7 +5,7 @@ import { ProductCard } from '../components/products/ProductCard';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 
-const InventoryContainer = ({selectedRemoval, handleRemoveClick, productsList, cart, selectedProduct, handleAddClick}) => {
+const InventoryContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, cart, selectedProduct, handleAddClick}) => {
 
   return (
     <div>
@@ -19,7 +19,7 @@ const InventoryContainer = ({selectedRemoval, handleRemoveClick, productsList, c
             <ProductsContainer productsList={productsList} handleAddClick={handleAddClick}/>
           </Route>
           <Route path ="/cart">
-            <CartContainer selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} handleRemoveClick={handleRemoveClick}/>
+            <CartContainer selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} handleRemoveClick={handleRemoveClick} handleAddCartClick={handleAddCartClick}/>
           </Route>
         </Switch>
       </Router>

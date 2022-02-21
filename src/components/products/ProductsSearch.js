@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { SearchStyle } from "../../styled-components/styleIndex"
+
 
 const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
 
@@ -10,17 +12,15 @@ const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
   }
 
   return (
-    <div>
       <form onSubmit={e => {e.preventDefault();
         handleSubmitSearch(trackText)}
       }>
-      <label htmlFor="search">Search product name</label>
+      <label htmlFor="search">Search product name</label><br/>
         <input type="text" onChange={handleSearchInputs}></input>
         <input type="submit" value="Search" />
         <input type="button" value="Reset" onClick={(e) => handleSearchReset}/>
         
       </form>
-    </div>
   )
 }
 

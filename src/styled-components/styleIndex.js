@@ -54,7 +54,8 @@ const Header = styled.div`
 
 
 const Container = styled.div`
-
+  width: 100%;
+  margin-left: 1em;
   display: flex;
   flex-wrap: wrap;
   font-family: "Playfair Display";
@@ -65,7 +66,7 @@ const Card = styled.div`
   /* transition: 0.3s; */
   padding: 2px 16px;
   border-radius: 5px;
-  margin:1em;
+  margin: 1em;
   width:150px;
   justify-content: center;
   h5{
@@ -120,22 +121,73 @@ const Card = styled.div`
 
 
 const ProductFeatureContainer = styled.div`
-  height: 62px;
-  line-height: 20px;
-  width: 100vw;
+  height: auto;
+  /* line-height: 20px; */
+  width: 100%;
   display: block;
   font-family: "Playfair Display";
   justify-content: center;
-  margin-right:0;
-  padding: 10px;
-  background-color:red;
+  margin-left: 0;
+  margin-top: 4em;
+    /* padding: 20px; */
 `
+
+const DropDown = styled.div`
+  width: 100%;
+  h4{
+    margin:.5em;
+  }
+  select{
+    margin-bottom: 1em;
+    position: relative;
+    background-color: #8DA878;
+    font-family:"Montserrat";
+    color: white;
+    border: solid white;
+    border-radius: 6px;
+  }
+`
+
+const SearchStyle = styled.div`
+  width: 100%;
+  margin: .5em;
+  h4{
+    margin-bottom:.5em;
+  }
+  input[type=text] {
+    margin-bottom: 1em;
+    position: relative;
+    /* background-color: #8DA878; */
+    font-family:"Montserrat";
+    color: white;
+    border: solid, white;
+    border-radius: 5px;
+}
+input[type=submit], input[type=button]{
+    background-color:white;
+    color:#8DA878;
+    border: 2px solid #8DA878;
+    border-radius: 5px;
+    font-style: bolder;
+  };
+  input[type=submit]:active,input[type=button]:active{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+    box-shadow: 5px 3px 3px gray;
+    font-style: bold;
+  }
+`
+
+
+
+
 const CartCardStyle = styled.div`
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 column-count: 4;
 /* display: inline-block; */
 font-size: 14px;
 flex-direction:row;
-border: solid black;
   font-family: "Montserrat";
   justify-content: left;
   margin: 10em;
@@ -147,13 +199,17 @@ border: solid black;
   
 `
 const LeftPiece = styled.div`
+overflow:hidden;
   position: left;
   img{
     /* padding-left: 5em; */
-    width:75px
+    width:75px;
+    border-radius: 5px;
+    overflow:hidden;
   }
 `
 const MiddleDescription = styled.div`
+  font-style:bold;
   justify-content:center;
   display: flex;
   flex-wrap: wrap;
@@ -166,16 +222,15 @@ const MiddleDescription = styled.div`
 
 const Quantity = styled.div`
   justify-content:center;
-  width: 75%;
-  height: auto;
+  /* width: 100%; */
+  
   padding-top:1em;
-  margin-left: 6em;
+  margin-left: 4em;
   button{
     display:block;
-    width: 100%;
     background-color:white;
     color:#8DA878;
-    border: 2px solid #8DA878;
+    border: 1px solid #8DA878;
     border-radius: 5px;
     font-style: bolder;
   }
@@ -202,4 +257,7 @@ const TotalCost = styled.div`
 
 
 
-export {Container, Card, Header, ProductFeatureContainer, CartCardStyle, LeftPiece, MiddleDescription, Quantity,TotalCost}
+export {
+  Container, Card, Header, ProductFeatureContainer, CartCardStyle,
+  LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle
+}

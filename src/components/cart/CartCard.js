@@ -1,7 +1,7 @@
 import { useState , useEffect} from "react"
 import { CartCardStyle, LeftPiece, MiddleDescription, Quantity,TotalCost } from "../../styled-components/styleIndex"
 
-const CartCard = ({selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) => {
+const CartCard = ({handleAddCartClick, selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) => {
 
 
 
@@ -19,9 +19,9 @@ const CartCard = ({selectedRemoval, handleRemoveClick, cartFetch, cartProduct}) 
         </div>
         </MiddleDescription>
         <Quantity>
+        <button onClick={() => handleRemoveClick(cartProduct)}>-</button>
         {selectedRemoval.product_id === cartProduct.id ? selectedRemoval.quantity : cartFetch.map(item => (item.product_id === cartProduct.id ? item.quantity : null))}
-        <br/>
-        <button onClick={() => handleRemoveClick(cartProduct)}>Remove from Cart</button>
+        <button onClick={() => handleAddCartClick(cartProduct)}>+</button>
         </Quantity>
         <TotalCost>
         ${cartFetch.map(item => (item.product_id === cartProduct.id ? (item.quantity * cartProduct.price_per_unit).toFixed(2) : null) )}
