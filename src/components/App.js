@@ -93,7 +93,7 @@ const handleAddCartClick = (cartProduct) => {
   const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
   setSelectedRemoval({...removedItem, quantity: (removedItem.quantity + 1)})
   
-  if (removedItem.quantity >= 2){
+  
 
   fetch(`http://localhost:3000/cart/${removedItem.id}`, {
     method: 'PATCH',
@@ -109,22 +109,7 @@ const handleAddCartClick = (cartProduct) => {
   .catch(err => alert(err))
   
   console.log("selected removal:", selectedRemoval)
-
-  } else if (removedItem.quantity < 2){
-    console.log("inside the 0 territory")
-    fetch(`http://localhost:3000/cart/${removedItem.id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-  },
-  body:JSON.stringify(removedItem)
-})
-  .then(resp =>  resp.json())
-  .then(removedItem => console.log(removedItem))
-  .catch(err => alert(err))
   
-  console.log("selected removal:", selectedRemoval)
-  }
  }
 
 
