@@ -46,6 +46,7 @@ useEffect(() => {
   console.log("re-rendered the cart fetch")
  },[temporaryCart, selectedRemoval])
 
+ 
 
   const handleAddClick = (product) => {
     // exists in actual cart?
@@ -119,6 +120,8 @@ const handleAddCartClick = (cartProduct) => {
 
   const removedItem = cartFetch.find(item => item.product_id === cartProduct.id)
   setSelectedRemoval({...removedItem, quantity: (removedItem.quantity - 1)})
+
+  
   
   if (removedItem.quantity >= 2){
 
@@ -150,15 +153,21 @@ const handleAddCartClick = (cartProduct) => {
   .then(removedItem => console.log(removedItem))
   .catch(err => alert(err))
   
-  console.log("selected removal:", selectedRemoval)
   }
  }
+//
+let initialValue = 0
+const totalInCart = cartFetch.reduce(function(total, currentValue){
+  return total + currentValue.quantity
+}, initialValue)
+//
+ 
 
 
   return (
     <div className="App">
       <Router>
-        <InventoryContainer selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} selectedProduct={selectedProduct} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick} handleAddCartClick={handleAddCartClick}/>
+        <InventoryContainer totalInCart={totalInCart} selectedRemoval={selectedRemoval} productsList={productsList} cart={cart} selectedProduct={selectedProduct} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick} handleAddCartClick={handleAddCartClick}/>
       </Router>
     </div>
   );

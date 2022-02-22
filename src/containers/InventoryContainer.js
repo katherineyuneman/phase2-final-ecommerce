@@ -5,12 +5,12 @@ import { ProductCard } from '../components/products/ProductCard';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 
-const InventoryContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, cart, selectedProduct, handleAddClick}) => {
+const InventoryContainer = ({totalInCart, handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, cart, selectedProduct, handleAddClick}) => {
 
   return (
     <div>
       <Router>
-      <NavBar />
+      <NavBar totalInCart={totalInCart}/>
         <Switch>
         <Route path ="/products/:id">
             <ProductCard />

@@ -14,11 +14,10 @@ const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, 
   },[selectedProduct, selectedRemoval])
 
 
+
+
+
 let productCartFilter = productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
-
-
-
-
 const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
 

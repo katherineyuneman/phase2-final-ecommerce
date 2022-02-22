@@ -11,7 +11,8 @@ import { Header} from "../../styled-components/styleIndex"
 
 // }
 
-const NavBar = () => {
+const NavBar = ({totalInCart}) => {
+
   return (
     <div className='nav-wrapper'>
       <Header>
@@ -46,7 +47,7 @@ const NavBar = () => {
 
       >
        <li>
-        Cart
+        Cart ({totalInCart})
         </li>
       </NavLink>
       </nav>
