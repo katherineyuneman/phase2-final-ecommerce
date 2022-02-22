@@ -159,7 +159,8 @@ const SearchStyle = styled.div`
     position: relative;
     /* background-color: #8DA878; */
     font-family:"Montserrat";
-    color: white;
+    /* color: white; */
+    font-style: none;
     border: solid, white;
     border-radius: 5px;
 }
