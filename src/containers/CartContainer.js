@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
-import { TotalCost } from "../styled-components/styleIndex"
+import { TotalCost, CartDiv } from "../styled-components/styleIndex"
 
 const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
@@ -41,15 +41,19 @@ console.log("total cost:", totalCost)
 const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
   return (
-    <div>
-      <h2>Cart</h2>
+    <CartDiv>
+       <h2>Cart</h2>
+      <div className="right">
       Subtotal: {totalCost}
-      <div style={{display:"flex", flexWrap:"wrap"}}>
+      </div>
+      <div className="left">
+      <div>
         {/* {productCartFilter.length > 0 ? {eachProductInCart} : "Your cart is empty!"} */}
         {eachProductInCart}
         
       </div>
-    </div>
+      </div>
+      </CartDiv>
   )
 }
 

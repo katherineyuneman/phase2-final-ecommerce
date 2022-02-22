@@ -181,7 +181,24 @@ input[type=submit], input[type=button]{
 `
 
 
-
+const CartDiv = styled.div`
+  background-color: red;
+  width: 100%;
+  height: auto;
+  margin-top:4em;
+  .left{
+    width: 100%;
+    display: block;
+    padding-left: 2em;
+  }
+  .right{
+    width: 15%;
+    display: block;
+    float: right;
+    margin-right: 1em;
+    
+  }
+`
 
 const CartCardStyle = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
@@ -191,7 +208,7 @@ font-size: 14px;
 flex-direction:row;
   font-family: "Montserrat";
   justify-content: left;
-  margin: 10em;
+  /* margin: 3em; */
   margin-bottom: .2em;
   margin-top:.2em;
   width:75%;
@@ -260,5 +277,6 @@ const TotalCost = styled.div`
 
 export {
   Container, Card, Header, ProductFeatureContainer, CartCardStyle,
-  LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle
+  LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle,
+  CartDiv,
 }
