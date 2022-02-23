@@ -4,9 +4,10 @@ import CartCard from "../components/cart/CartCard"
 import { TotalCost, CartDiv } from "../styled-components/styleIndex"
 import CheckoutForm from "../components/cart/CheckoutForm"
 
-const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
+const CartContainer = ({ handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
-  const [PopUpisOpen, SetPopUpisOpen] = useState(false);
+  const [ PopUpisOpen, SetPopUpisOpen ] = useState(false);
+  const [ isSubmitted, setIsSubmitted ] = useState(false)
  
   const togglePopup = () => {
     SetPopUpisOpen(!PopUpisOpen);
@@ -45,11 +46,17 @@ console.log("total cost:", totalCost)
 
 const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
-  return (
-    <CartDiv>
-       <h2>Cart</h2>
+const submitForm = (formData, e) => {
+  console.log(formData)
+  e.preventDefault();
+  setIsSubmitted(true)
+}
 
-       {productCartFilter.length > 0 ?
+  return (
+    !isSubmitted ? (
+    <CartDiv>
+      <h2>Cart</h2>
+      {productCartFilter.length > 0 ?
       <div className="right">
       Subtotal: ${totalCost.toFixed(2)}
       <br/>
@@ -68,8 +75,12 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
         
       </div>
       </div>
-      {PopUpisOpen && <CheckoutForm totalCost={totalCost} togglePopup={togglePopup}/>}
+      {PopUpisOpen && <CheckoutForm submitForm={submitForm} totalCost={totalCost} togglePopup={togglePopup}/>}
       </CartDiv>
+    ) : <CartDiv>
+          <h2>Thank you for submitting your order!</h2>
+        </CartDiv>
+
   )
 }
 
