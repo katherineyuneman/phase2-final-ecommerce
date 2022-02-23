@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {PopupCheckout} from "../../styled-components/styleIndex"
 
 const CheckoutForm = ({totalCost, togglePopup}) => {
+
+  const [ isSubmitted, setIsSubmitted ] = useState(false)
+  const [ formData, setFormData ] = useState({
+    address1: "",
+    address2: "",
+    zipcode: "",
+    city: "",
+    state: ""
+  })
+
+  const handleInputChange = (e) => {
+    const key = e.target.name
+    setFormData({
+      ...formData,
+     [key]: e.target.value
+    })
+  }
+
+  const submitForm = (formData) => {
+    console.log(formData)
+  }
+
   return (
     <PopupCheckout>
     <div>
@@ -11,23 +33,23 @@ const CheckoutForm = ({totalCost, togglePopup}) => {
       <h3> Check-Out</h3>
       <form>
       <label>Address line 1:
-        <input type="text" name="address" />
+        <input type="text" name="address1" value={formData.address1} onChange={handleInputChange}/>
       </label>
       <br />
       <label>Address line 2:
-        <input type="text" name="address" />
+        <input type="text" name="address2" value={formData.address2} onChange={(e) => setFormData({ ...formData, address2: e.target.value })}/>
       </label>
       <br />
       <label>Zip Code:
-        <input type="text" name="zipcode" />
+        <input type="text" name="zipcode" value={formData.zipcode} onChange={(e) => setFormData({ ...formData, zipcode: e.target.value })}/>
       </label>
       <br />
       <label>City:
-        <input type="text" name="zipcode" />
+        <input type="text" name="city" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })}/>
       </label>
       <br/>
       <label>State: 
-      <select id="country-state" name="country-state">
+      <select name="state" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })}>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
     <option value="AS">American Samoa</option>
