@@ -44,7 +44,14 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
     <CartDiv>
        <h2>Cart</h2>
       <div className="right">
-      Subtotal: {totalCost}
+      Subtotal: {totalCost.toFixed(2)}
+      <br/>
+      Taxes: {(totalCost * .0735).toFixed(2)}
+      <br/>
+      Total: {(totalCost * 1.0735).toFixed(2)}
+      <br/>
+      <br/>
+      <button>Checkout</button>
       </div>
       <div className="left">
       <div>

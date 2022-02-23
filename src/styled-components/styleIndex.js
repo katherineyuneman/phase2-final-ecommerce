@@ -182,7 +182,6 @@ input[type=submit], input[type=button]{
 
 
 const CartDiv = styled.div`
-  background-color: red;
   width: 100%;
   height: auto;
   margin-top:4em;
@@ -192,17 +191,47 @@ const CartDiv = styled.div`
     padding-left: 2em;
   }
   .right{
-    width: 15%;
+    padding-left: .2em;
+    padding-right: .2em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    width: 20%;
+    height: auto;
     display: block;
     float: right;
     margin-right: 1em;
-    
-  }
+    border: solid 1.5px gray;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+      button{
+        display:block;
+        width: 100%;
+        background-color:white;
+        color:#8DA878;
+        border: 2px solid #8DA878;
+        border-radius: 5px;
+        font-style: bolder;
+      }
+      button:hover{
+        background-color:#8DA878;
+        color:white;
+        border: 2px solid white;
+      };
+      button:active{
+        background-color:#8DA878;
+        color:white;
+        border: 2px solid white;
+        box-shadow: 5px 3px 3px gray;
+        font-style: bold;
+      }
+    }
 `
 
 const CartCardStyle = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 column-count: 4;
+border: solid 1.5px gray;
+    border-radius: 5px;
 /* display: inline-block; */
 font-size: 14px;
 flex-direction:row;
@@ -211,7 +240,7 @@ flex-direction:row;
   /* margin: 3em; */
   margin-bottom: .2em;
   margin-top:.2em;
-  width:75%;
+  width:70%;
   height: 75px;
   overflow: hidden;
   
