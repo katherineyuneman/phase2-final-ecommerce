@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
 import CartCard from "../components/cart/CartCard"
 import { TotalCost, CartDiv } from "../styled-components/styleIndex"
+import CheckoutForm from "../components/cart/CheckoutForm"
 
 const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
@@ -43,23 +44,27 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
   return (
     <CartDiv>
        <h2>Cart</h2>
+
+       {productCartFilter.length > 0 ?
       <div className="right">
-      Subtotal: {totalCost.toFixed(2)}
+      Subtotal: ${totalCost.toFixed(2)}
       <br/>
-      Taxes: {(totalCost * .0735).toFixed(2)}
+      Taxes: ${(totalCost * .0735).toFixed(2)}
       <br/>
-      Total: {(totalCost * 1.0735).toFixed(2)}
+      Total: ${(totalCost * 1.0735).toFixed(2)}
       <br/>
       <br/>
-      <button>Checkout</button>
-      </div>
+        <button>Checkout</button>
+      </div>  : null}
+
       <div className="left">
       <div>
-        {/* {productCartFilter.length > 0 ? {eachProductInCart} : "Your cart is empty!"} */}
-        {eachProductInCart}
+        {/* {eachProductInCart} */}
+        {productCartFilter.length > 0 ? eachProductInCart : "Your cart is empty!"}
         
       </div>
       </div>
+      <CheckoutForm></CheckoutForm>
       </CartDiv>
   )
 }

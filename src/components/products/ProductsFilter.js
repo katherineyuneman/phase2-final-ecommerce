@@ -1,4 +1,3 @@
-import { useState } from "react/cjs/react.development"
 import { DropDown } from "../../styled-components/styleIndex"
 
 const ProductsFilter = ({handleChangeDept}) => {
@@ -6,9 +5,8 @@ const ProductsFilter = ({handleChangeDept}) => {
 
   
   return (
-    <div>
+    <DropDown>
       <h4>Department Filter</h4>
-      
         <select id="departments" onChange={handleChangeDept}>
         <option value="All">All</option>
 	      <option value="Produce">Produce</option>
@@ -16,9 +14,7 @@ const ProductsFilter = ({handleChangeDept}) => {
 	      <option value="Meat + Seafood">Meat + Seafood</option>
         <option value="Dry Goods + Pasta">Dry Goods + Pasta</option>
         </select>
-      
-
-    </div>
+    </DropDown>
   )
 }
 

@@ -1,14 +1,15 @@
 import { ProductCard } from "./ProductCard"
-import styled from 'styled-components'
-
+import { Container } from "../../styled-components/styleIndex"
 
 const ProductsList = ({handleAddClick, productsList, filteredProductsList}) => {
 
 let mappingProducts
 if (filteredProductsList.length === 0){
-  mappingProducts = productsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
+  mappingProducts = productsList.map(product => 
+    <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
 } else if (filteredProductsList.length > 0){
-  mappingProducts = filteredProductsList.map(product => <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
+  mappingProducts = filteredProductsList.map(product =>
+    <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
 }
 
   
@@ -20,10 +21,6 @@ if (filteredProductsList.length === 0){
   )
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
 
 // style={{display:"flex", flexWrap:"wrap"}}
 

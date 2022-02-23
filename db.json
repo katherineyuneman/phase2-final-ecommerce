@@ -2,18 +2,18 @@
   "cart": [
     {
       "product_id": 3,
-      "quantity": 3,
-      "id": 3
+      "quantity": 1,
+      "id": 1
+    },
+    {
+      "product_id": 1,
+      "quantity": 1,
+      "id": 2
     },
     {
       "product_id": 4,
       "quantity": 1,
-      "id": 4
-    },
-    {
-      "product_id": 7,
-      "quantity": 1,
-      "id": 5
+      "id": 3
     }
   ],
   "products": [

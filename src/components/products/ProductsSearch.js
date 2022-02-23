@@ -12,15 +12,18 @@ const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
   }
 
   return (
+    <SearchStyle>
       <form onSubmit={e => {e.preventDefault();
         handleSubmitSearch(trackText)}
       }>
       <label htmlFor="search">Search product name</label><br/>
         <input type="text" onChange={handleSearchInputs}></input>
+        <br />
         <input type="submit" value="Search" />
-        <input type="button" value="Reset" onClick={(e) => handleSearchReset}/>
+        {/* <input type="button" value="Reset" onClick={(e) => handleSearchReset}/> */}
         
       </form>
+      </SearchStyle>
   )
 }
 
