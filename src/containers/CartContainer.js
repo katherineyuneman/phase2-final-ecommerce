@@ -6,7 +6,11 @@ import CheckoutForm from "../components/cart/CheckoutForm"
 
 const CartContainer = ({handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
-
+  const [PopUpisOpen, SetPopUpisOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    SetPopUpisOpen(!PopUpisOpen);
+  }
   
   useEffect(() => {
     fetch ('http://localhost:3000/cart')
@@ -54,7 +58,7 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
       Total: ${(totalCost * 1.0735).toFixed(2)}
       <br/>
       <br/>
-        <button>Checkout</button>
+        <button onClick={togglePopup}>Checkout</button>
       </div>  : null}
 
       <div className="left">
@@ -64,7 +68,7 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
         
       </div>
       </div>
-      <CheckoutForm></CheckoutForm>
+      {PopUpisOpen && <CheckoutForm totalCost={totalCost} togglePopup={togglePopup}/>}
       </CartDiv>
   )
 }
