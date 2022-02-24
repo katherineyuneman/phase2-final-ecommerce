@@ -344,12 +344,7 @@ const PopupCheckout = styled.div`
   border: 1px solid #999;
   font-size: 20px;
 }
-
 `
-
-
-
-
 
 export {
   Container, Card, Header, ProductFeatureContainer, CartCardStyle,

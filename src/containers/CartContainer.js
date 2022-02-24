@@ -4,24 +4,24 @@ import CartCard from "../components/cart/CartCard"
 import { TotalCost, CartDiv } from "../styled-components/styleIndex"
 import CheckoutForm from "../components/cart/CheckoutForm"
 
-const CartContainer = ({ handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
+const CartContainer = ({ isSubmitted, submitForm, handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
   const [ PopUpisOpen, SetPopUpisOpen ] = useState(false);
-  const [ isSubmitted, setIsSubmitted ] = useState(false)
- 
+
   const togglePopup = () => {
     SetPopUpisOpen(!PopUpisOpen);
   }
   
-  useEffect(() => {
+  const updatedFetch = () => {
     fetch ('http://localhost:3000/cart')
     .then(response => response.json())
     .then(data => setCartFetch(data))
     .catch(err => alert(err))
+  }
+
+  useEffect(() => {
+    updatedFetch();
   },[selectedProduct, selectedRemoval])
-
-
-
 
 
 const productCartFilter = productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
@@ -46,11 +46,9 @@ console.log("total cost:", totalCost)
 
 const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
-const submitForm = (formData, e) => {
-  console.log(formData)
-  e.preventDefault();
-  setIsSubmitted(true)
-}
+
+
+
 
   return (
     !isSubmitted ? (

@@ -27,7 +27,7 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
       <span className="close-icon" onClick={togglePopup}>x</span>
         <h3> Check-Out</h3>
         
-        <form onSubmit={(e) => submitForm(formData, e)}>
+        <form onSubmit={submitForm}>
         <label>Address line 1:
           <input type="text" name="address1" value={formData.address1} onChange={handleInputChange}/>
         </label>
