@@ -42,7 +42,6 @@ function App() {
 
 useEffect(() => {
   fetchCart();
-  console.log("re-rendered the cart fetch")
  },[temporaryCart, selectedRemoval])
 
  
@@ -51,7 +50,6 @@ useEffect(() => {
     setIsSubmitted(false);
     // exists in actual cart?
     const cItem = cartFetch.find(item => item.product_id === product.id)
-    console.log("citem:", cItem)
     cItem && fetch(`http://localhost:3000/cart/${cItem.id}`, {
       method: 'PATCH',
       headers: {
@@ -68,7 +66,6 @@ useEffect(() => {
     // does not exist in actual cart
     
     const tempCItem = temporaryCart.find(item => item.product_id === product.id)
-    console.log("temp CItem:", tempCItem)
    if ((!!cItem === false || !!cItem === undefined) && !!tempCItem === false){
      const newTempObj = {
         "product_id": product.id
@@ -85,7 +82,7 @@ useEffect(() => {
           })
           })
           .then(resp =>  resp.json())
-          .then(newlyAddedPost => console.log(newlyAddedPost))
+          // .then(newlyAddedPost => console.log(newlyAddedPost))
           .catch(err => alert(err))
         }
 }
@@ -108,8 +105,6 @@ const handleAddCartClick = (cartProduct) => {
   .then(resp =>  resp.json())
   .then(newItem => setCartFetch(oldCart => oldCart.map(item => newItem.id === item.id ? newItem : item)))
   .catch(err => alert(err))
-  
-  console.log("selected removal:", selectedRemoval)
   
  }
 
@@ -145,7 +140,7 @@ const handleAddCartClick = (cartProduct) => {
   body:JSON.stringify(removedItem)
 })
   .then(resp =>  resp.json())
-  .then(removedItem => console.log(removedItem))
+  // .then(removedItem => console.log(removedItem))
   .catch(err => alert(err))
   
 
@@ -162,6 +157,8 @@ const totalInCart = cartFetch.reduce(function(total, currentValue){
 const submitForm = (e) => {
   e.preventDefault();
   setIsSubmitted(true)
+  setTemporaryCart([])
+  //
   cartFetch.map(cartItem => 
     fetch(`http://localhost:3000/cart/${cartItem.id}`, {
     method: 'DELETE',
@@ -170,8 +167,11 @@ const submitForm = (e) => {
   },
   body:JSON.stringify(cartItem)
 })
-  .then(resp =>  resp.json())
-  .then(setCartFetch([]))
+  .then(resp =>  {
+    if (resp.ok) {
+      setCartFetch(cartFetch => cartFetch.filter(c => c.id !== cartItem.id))
+    }
+  })
   .catch(err => alert(err))
 )
 }

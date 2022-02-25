@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
+import { NavLink } from 'react-router-dom'
 import CartCard from "../components/cart/CartCard"
-import { TotalCost, CartDiv } from "../styled-components/styleIndex"
 import CheckoutForm from "../components/cart/CheckoutForm"
+import { TotalCost, CartDiv } from "../styled-components/styleIndex"
 
 const CartContainer = ({ isSubmitted, submitForm, handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
@@ -25,16 +26,13 @@ const CartContainer = ({ isSubmitted, submitForm, handleAddCartClick, selectedRe
 
 
 const productCartFilter = productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
-console.log("product cart filter:",productCartFilter)
 
 const ProductCartArrayMerge =
 productCartFilter.map(product => ({...cartFetch.find((item) => (item.product_id === product.id) && item.quantity), ...product}
     ));
 
-console.log(ProductCartArrayMerge)
 
 const totalCostArray = ProductCartArrayMerge.map(product => ({...product, "totalCost": product.quantity * product.price_per_unit}))
-console.log(totalCostArray)
 
 //
 let initialValue = 0
@@ -42,9 +40,22 @@ const totalCost = totalCostArray.reduce(function(total, currentValue){
   return total + currentValue.totalCost
 }, initialValue)
 //
-console.log("total cost:", totalCost)
 
-const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={cartProduct.product_id} cartProduct={cartProduct} cartFetch={cartFetch}/>)
+
+// // eri sample code - not working
+// const totalCost = 0
+//   cartFetch.reduce((ci) => {
+//     const findProduct = productsList.find(p => ci.product_id === p.id)
+//     console.log("find product:", findProduct)
+
+//     return (findProduct)
+//     // return findProduct
+// }, 0)
+
+
+// console.log("total cost:", totalCost)
+
+const eachProductInCart = productCartFilter.map((cartProduct, index) => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={index} cartProduct={cartProduct} cartFetch={cartFetch}/>)
 
 
 
@@ -77,6 +88,16 @@ const eachProductInCart = productCartFilter.map(cartProduct => <CartCard handleA
       </CartDiv>
     ) : <CartDiv>
           <h2>Thank you for submitting your order!</h2>
+         
+        <NavLink
+          exact
+          // style={linkStyle}
+          to="/products"
+        ><li>
+        Search for more products!
+        </li>
+      </NavLink>
+
         </CartDiv>
 
   )

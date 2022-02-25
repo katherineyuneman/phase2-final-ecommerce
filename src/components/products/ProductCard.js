@@ -19,7 +19,7 @@ const ProductCard = ({handleAddClick, product}) => {
         
 
       <button className="add" onClick={() => handleAddClick(product)}>Add to Cart</button>
-      {product.inventory < 5 ? <h4 className="stock">Low Stock!</h4> : null}
+      {/* {product.inventory < 5 ? <h4 className="stock">Low Stock!</h4> : null} */}
     </Card>
   )
 }

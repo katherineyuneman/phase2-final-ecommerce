@@ -7,7 +7,6 @@ const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
   const [ trackText, setTrackText ] = useState("")
 
   const handleSearchInputs = (e) => {
-    console.log(e.target.value)
     setTrackText(e.target.value)
   }
 
