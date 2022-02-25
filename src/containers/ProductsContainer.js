@@ -26,8 +26,9 @@ const handleSubmitSearch = (trackText) => {
   setFilteredProductsList(filtered)
 }
 
-const handleSearchReset = (event) => {
-
+const handleSearchReset = () => {
+  setFilteredProductsList(productsList)
+  document.querySelector('[name="searchInput"]').value=''
 }
 
 

@@ -1,9 +1,24 @@
 {
   "cart": [
     {
-      "product_id": 1,
-      "quantity": 3,
+      "product_id": 7,
+      "quantity": 2,
       "id": 1
+    },
+    {
+      "product_id": 8,
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "product_id": 6,
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "product_id": 3,
+      "quantity": 1,
+      "id": 4
     }
   ],
   "products": [

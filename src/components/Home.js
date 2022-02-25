@@ -1,8 +1,20 @@
+import { HomeContainer } from "../styled-components/styleIndex"
+import { NavLink } from "react-router-dom"
+
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to our Store</h1>
-    </div>
+    <HomeContainer>
+      <h1>Welcome to THE Grocery Store</h1>
+      <br />
+      <NavLink
+          exact
+          // style={linkStyle}
+          to="/products"
+
+        >
+        <button>Start Shopping {'>>'} </button>
+      </NavLink>
+      </HomeContainer>
   )
 }
 

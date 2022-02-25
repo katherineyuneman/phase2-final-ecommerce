@@ -52,6 +52,32 @@ const Header = styled.div`
     
 `
 
+const HomeContainer = styled.div`
+  margin-top: 5em;
+  button{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid #8DA878;
+    border-radius: 5px;
+    font-style: bolder;
+    font-size: 20px;
+    font-family: "Playfair Display";
+    font-style: bolder;
+    padding: 1em;
+  }
+  button:hover{
+    background-color:white;
+    color:#8DA878;
+    border: 2px solid #8DA878;
+  };
+  button:active{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+    box-shadow: 5px 3px 3px gray;
+    font-style: bold;
+  };
+`
 
 const Container = styled.div`
   width: 100%;
@@ -347,7 +373,7 @@ const PopupCheckout = styled.div`
 `
 
 export {
-  Container, Card, Header, ProductFeatureContainer, CartCardStyle,
+  HomeContainer, Container, Card, Header, ProductFeatureContainer, CartCardStyle,
   LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle,
-  CartDiv,PopupCheckout,
+  CartDiv,PopupCheckout
 }
