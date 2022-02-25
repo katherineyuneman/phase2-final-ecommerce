@@ -3,7 +3,7 @@ import { useEffect } from "react/cjs/react.development"
 import { NavLink } from 'react-router-dom'
 import CartCard from "../components/cart/CartCard"
 import CheckoutForm from "../components/cart/CheckoutForm"
-import { TotalCost, CartDiv } from "../styled-components/styleIndex"
+import { CartDiv, HomeContainer } from "../styled-components/styleIndex"
 
 const CartContainer = ({ isSubmitted, submitForm, handleAddCartClick, selectedRemoval, handleRemoveClick, productsList, selectedProduct }) => {
   const [ cartFetch, setCartFetch] = useState([])
@@ -87,16 +87,18 @@ const eachProductInCart = productCartFilter.map((cartProduct, index) => <CartCar
       {PopUpisOpen && <CheckoutForm submitForm={submitForm} totalCost={totalCost} togglePopup={togglePopup}/>}
       </CartDiv>
     ) : <CartDiv>
-          <h2>Thank you for submitting your order!</h2>
-         
-        <NavLink
+          <HomeContainer>
+      <h1>Thank you for shopping!</h1>
+      <br />
+      <NavLink
           exact
           // style={linkStyle}
           to="/products"
-        ><li>
-        Search for more products!
-        </li>
+
+        >
+        <button>Shop for more products! {'>>'} </button>
       </NavLink>
+      </HomeContainer>
 
         </CartDiv>
 
