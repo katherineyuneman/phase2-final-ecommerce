@@ -64,7 +64,6 @@ useEffect(() => {
     .catch(err => alert(err))
 
     // does not exist in actual cart
-    
     const tempCItem = temporaryCart.find(item => item.product_id === product.id)
    if ((!!cItem === false || !!cItem === undefined) && !!tempCItem === false){
      const newTempObj = {
@@ -82,7 +81,6 @@ useEffect(() => {
           })
           })
           .then(resp =>  resp.json())
-          // .then(newlyAddedPost => console.log(newlyAddedPost))
           .catch(err => alert(err))
         }
 }
