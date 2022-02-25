@@ -19,6 +19,11 @@
       "product_id": 3,
       "quantity": 1,
       "id": 4
+    },
+    {
+      "product_id": 1,
+      "quantity": 2,
+      "id": 5
     }
   ],
   "products": [

@@ -11,9 +11,11 @@ const ProductsSearch = ({handleSubmitSearch, handleSearchReset}) => {
     setTrackText(e.target.value)
   }
 
-  // useEffect(() => {
-  //   document.querySelector('[name="searchInput"]').value=''
-  // },[handleSearchReset])
+
+
+  useEffect(() => {
+    setTrackText('')
+  },[handleSubmitSearch])
 
   return (
     <SearchStyle>
