@@ -4,6 +4,16 @@
       "product_id": 3,
       "quantity": 1,
       "id": 1
+    },
+    {
+      "product_id": 4,
+      "quantity": 2,
+      "id": 2
+    },
+    {
+      "product_id": 5,
+      "quantity": 1,
+      "id": 3
     }
   ],
   "products": [
@@ -23,7 +33,8 @@
       "image": "https://www.instacart.com/image-server/394x394/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_09ff3801-efef-43e6-a14b-6dc55a3fe4c8.jpg",
       "price_per_unit": 1.99,
       "units": "item",
-      "department": "Produce"
+      "department": "Produce",
+      "description": "Freshest avocados from Mexico"
     },
     {
       "id": 3,

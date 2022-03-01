@@ -5,7 +5,7 @@ import ProductsSearch from "../components/products/ProductsSearch";
 import { ProductFeatureContainer, DropDown, SearchStyle } from "../styled-components/styleIndex";
 
 
-const ProductsContainer = ({productsList, handleAddClick}) => {
+const ProductsContainer = ({productsList, handleAddClick, handleProductClick}) => {
 
   const [ filteredProductsList, setFilteredProductsList ] = useState(productsList)
 
@@ -43,6 +43,7 @@ const handleSearchReset = () => {
         filteredProductsList={filteredProductsList}
         productsList={productsList}
         handleAddClick={handleAddClick}
+        handleProductClick={handleProductClick}
       />
     </div>
   )

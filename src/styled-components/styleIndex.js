@@ -1,5 +1,28 @@
 import styled from 'styled-components'
 
+const GeneralStyle = styled.div`
+button{
+    display:block;
+    width: 100%;
+    background-color:white;
+    color:#8DA878;
+    border: 2px solid #8DA878;
+    border-radius: 5px;
+    font-style: bolder;
+  }
+  button:hover{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+  };
+  button:active{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+    box-shadow: 5px 3px 3px gray;
+    font-style: bold;
+  };
+`
 const Header = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&family=Playfair+Display:ital,wght@1,800&display=swap');
   background: #8DA878;
@@ -372,8 +395,47 @@ const PopupCheckout = styled.div`
 }
 `
 
+const DetailCard = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  /* transition: 0.3s; */
+  padding: 2px 16px;
+  border-radius: 5px;
+  margin: 1em;
+  width:auto;
+  justify-content: center;
+  h5{
+    padding: 2px 10px;
+    margin:1em;
+    background-color:#8DA878;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+  };
+  img{
+    width:25%;
+    filter: saturate(100%);
+    
+  };
+  h3{
+    height: 30px;
+  };
+  .stock{
+    background-color:#CB4C4E;
+    color:white
+  };
+  h4{
+    height: 20px;
+  };
+  h6{
+    font-family: "Playfair Display"
+  };
+`
+
+
+
+
 export {
-  HomeContainer, Container, Card, Header, ProductFeatureContainer, CartCardStyle,
+  GeneralStyle, HomeContainer, Container, Card, Header, ProductFeatureContainer, CartCardStyle,
   LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle,
-  CartDiv,PopupCheckout
+  CartDiv,PopupCheckout, DetailCard
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import InventoryContainer from '../containers/InventoryContainer';
-
+import { GeneralStyle } from '../styled-components/styleIndex';
 
 function App() {
 
@@ -177,7 +177,9 @@ const submitForm = (e) => {
 
   return (
     <div className="App">
+      <GeneralStyle>
         <InventoryContainer isSubmitted={isSubmitted} submitForm={submitForm} totalInCart={totalInCart} selectedRemoval={selectedRemoval} productsList={productsList} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick} handleAddCartClick={handleAddCartClick}/>
+      </GeneralStyle>
     </div>
   );
 }

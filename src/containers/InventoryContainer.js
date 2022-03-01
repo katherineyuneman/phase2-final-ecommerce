@@ -3,21 +3,34 @@ import ProductsContainer from '../containers/ProductsContainer';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 import Home from '../components/Home';
+import ProductDetail from '../components/products/ProductDetail';
+import { useState } from 'react';
 
 const InventoryContainer = (
   { isSubmitted, submitForm, totalInCart, handleAddCartClick,
     selectedRemoval, handleRemoveClick, productsList, cart, handleAddClick
 }) => {
 
+  const [ selectedProductDetail, setSelectedProductDetail ] = useState({})
+
+  const handleProductClick = (product) => {
+    console.log("clicked product now in inventory:", product)
+    setSelectedProductDetail(product)
+  }
+
   return (
     <div>
       <Router>
         <NavBar totalInCart={totalInCart}/>
         <Switch>
+        <Route path ="/products/:id">
+          <ProductDetail selectedProductDetail={selectedProductDetail}/>
+        </Route>
           <Route path ="/products">
             <ProductsContainer
               productsList={productsList}
               handleAddClick={handleAddClick}
+              handleProductClick={handleProductClick}
             />
           </Route>
           <Route path ="/cart">
