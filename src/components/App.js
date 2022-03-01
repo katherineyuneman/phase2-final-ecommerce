@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import InventoryContainer from '../containers/InventoryContainer';
 
 
@@ -178,9 +177,7 @@ const submitForm = (e) => {
 
   return (
     <div className="App">
-      <Router>
         <InventoryContainer isSubmitted={isSubmitted} submitForm={submitForm} totalInCart={totalInCart} selectedRemoval={selectedRemoval} productsList={productsList} handleAddClick={handleAddClick} handleRemoveClick={handleRemoveClick} handleAddCartClick={handleAddCartClick}/>
-      </Router>
     </div>
   );
 }

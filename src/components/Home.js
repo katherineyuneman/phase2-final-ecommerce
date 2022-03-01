@@ -6,15 +6,10 @@ const Home = () => {
     <HomeContainer>
       <h1>Welcome to the Grocery Store</h1>
       <br />
-      <Link
-          exact
-          // style={linkStyle}
-          to="/products"
-
-        >
+      <Link exact to={"/products"}>
         <button>Start Shopping {'>>'} </button>
       </Link>
-      </HomeContainer>
+    </HomeContainer>
   )
 }
 

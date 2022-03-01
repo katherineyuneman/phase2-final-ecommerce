@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import ProductsContainer from '../containers/ProductsContainer';
-import { ProductCard } from '../components/products/ProductCard';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 import Home from '../components/Home';
