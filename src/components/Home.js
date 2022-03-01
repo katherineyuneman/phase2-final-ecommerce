@@ -1,19 +1,19 @@
 import { HomeContainer } from "../styled-components/styleIndex"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
     <HomeContainer>
-      <h1>Welcome to THE Grocery Store</h1>
+      <h1>Welcome to the Grocery Store</h1>
       <br />
-      <NavLink
+      <Link
           exact
           // style={linkStyle}
           to="/products"
 
         >
         <button>Start Shopping {'>>'} </button>
-      </NavLink>
+      </Link>
       </HomeContainer>
   )
 }

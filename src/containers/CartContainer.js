@@ -55,11 +55,15 @@ const totalCost = totalCostArray.reduce(function(total, currentValue){
 
 // console.log("total cost:", totalCost)
 
-const eachProductInCart = productCartFilter.map((cartProduct, index) => <CartCard handleAddCartClick={handleAddCartClick} selectedRemoval={selectedRemoval} handleRemoveClick={handleRemoveClick} key={index} cartProduct={cartProduct} cartFetch={cartFetch}/>)
-
-
-
-
+const eachProductInCart = 
+  productCartFilter.map((cartProduct, index) => 
+    <CartCard
+      key={cartProduct.id}
+      cartProduct={cartProduct}
+      handleAddCartClick={handleAddCartClick}
+      selectedRemoval={selectedRemoval}
+      handleRemoveClick={handleRemoveClick}
+      cartFetch={cartFetch}/>)
 
   return (
     !isSubmitted ? (

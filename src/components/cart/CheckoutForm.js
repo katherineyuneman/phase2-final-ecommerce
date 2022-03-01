@@ -10,7 +10,7 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
     city: "",
     state: ""
   })
-
+  
   const handleInputChange = (e) => {
     const key = e.target.name
     setFormData({
@@ -18,7 +18,7 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
      [key]: e.target.value
     })
   }
-
+  
   return (
     <PopupCheckout>
     <div>
