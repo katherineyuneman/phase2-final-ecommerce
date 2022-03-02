@@ -11,12 +11,6 @@ const InventoryContainer = (
     selectedRemoval, handleRemoveClick, productsList, cart, handleAddClick
 }) => {
 
-  const [ selectedProductDetail, setSelectedProductDetail ] = useState({})
-
-  const handleProductClick = (product) => {
-    console.log("clicked product now in inventory:", product)
-    setSelectedProductDetail(product)
-  }
 
   return (
     <div>
@@ -41,7 +35,6 @@ const InventoryContainer = (
             <ProductsContainer
               productsList={productsList}
               handleAddClick={handleAddClick}
-              handleProductClick={handleProductClick}
             />
           </Route>
           <Route path ="/products/:id" component={ProductDetail}>

@@ -1,15 +1,15 @@
 import { ProductCard } from "./ProductCard"
 import { Container } from "../../styled-components/styleIndex"
 
-const ProductsList = ({ handleProductClick, handleAddClick, productsList, filteredProductsList }) => {
+const ProductsList = ({ handleAddClick, productsList, filteredProductsList }) => {
 
   let mappingProducts
   if (filteredProductsList.length === 0){
     mappingProducts = productsList.map(product => 
-      <ProductCard key={product.id} handleAddClick={handleAddClick} handleProductClick={handleProductClick} product={product} />)
+      <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
   } else if (filteredProductsList.length > 0){
       mappingProducts = filteredProductsList.map(product =>
-        <ProductCard key={product.id} handleAddClick={handleAddClick} handleProductClick={handleProductClick} product={product} />)
+        <ProductCard key={product.id} handleAddClick={handleAddClick} product={product} />)
   }
     
     return (

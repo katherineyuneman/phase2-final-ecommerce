@@ -1,27 +1,7 @@
 import styled from 'styled-components'
 
 const GeneralStyle = styled.div`
-button{
-    display:block;
-    width: 100%;
-    background-color:white;
-    color:#8DA878;
-    border: 2px solid #8DA878;
-    border-radius: 5px;
-    font-style: bolder;
-  }
-  button:hover{
-    background-color:#8DA878;
-    color:white;
-    border: 2px solid white;
-  };
-  button:active{
-    background-color:#8DA878;
-    color:white;
-    border: 2px solid white;
-    box-shadow: 5px 3px 3px gray;
-    font-style: bold;
-  };
+
 `
 const Header = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&family=Playfair+Display:ital,wght@1,800&display=swap');
@@ -427,6 +407,32 @@ const DetailCard = styled.div`
     font-family: "Playfair Display"
   };
 `
+const DetailButton = styled.div`
+  justify-content:center;
+  margin: 1em;
+  button{
+    display:block;
+    background-color:white;
+    color:#8DA878;
+    border: 1px solid #8DA878;
+    border-radius: 5px;
+    font-style: bolder;
+    padding: 1em;
+  }
+  button:hover{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+  };
+  button:active{
+    background-color:#8DA878;
+    color:white;
+    border: 2px solid white;
+    box-shadow: 5px 3px 3px gray;
+    font-style: bold;
+  };
+
+`
 
 
 
@@ -434,5 +440,5 @@ const DetailCard = styled.div`
 export {
   GeneralStyle, HomeContainer, Container, Card, Header, ProductFeatureContainer, CartCardStyle,
   LeftPiece, MiddleDescription, Quantity,TotalCost, DropDown, SearchStyle,
-  CartDiv,PopupCheckout, DetailCard
+  CartDiv,PopupCheckout, DetailCard, DetailButton
 }

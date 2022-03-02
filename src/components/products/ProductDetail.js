@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DetailCard, Container } from "../../styled-components/styleIndex"
+import { DetailCard, DetailButton } from "../../styled-components/styleIndex"
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,6 @@ useEffect(() => {
     .catch(err => alert(err))
 }, [])
 
-console.log("product detail:",productDetail)
 
   return (
     <div>
@@ -26,11 +25,13 @@ console.log("product detail:",productDetail)
             <img src={productDetail.image} alt="test" />
             <h4>{productDetail.description}</h4>
             <h3>{productDetail.brand}</h3>
-            <h4>${productDetail.price_per_unit} / {productDetail.units}</h4>
+            {/* <h4>${productDetail.price_per_unit.toFixed(2)} / {productDetail.units}</h4> */}
         </DetailCard>
+        <DetailButton>
         <Link to="/products">
             <button>{"< <"} Back to Products</button>
         </Link>
+        </DetailButton>
     </div>
   )
 }
