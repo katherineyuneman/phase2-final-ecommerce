@@ -1,17 +1,17 @@
 {
   "cart": [
     {
-      "product_id": 3,
-      "quantity": 1,
+      "product_id": 6,
+      "quantity": 2,
       "id": 1
     },
     {
-      "product_id": 4,
-      "quantity": 2,
+      "product_id": 7,
+      "quantity": 1,
       "id": 2
     },
     {
-      "product_id": 5,
+      "product_id": 15,
       "quantity": 1,
       "id": 3
     }
@@ -20,11 +20,12 @@
     {
       "id": 1,
       "name": "Strawberries",
-      "brand": "Farm Fresh",
+      "brand": "Silverman's Farm",
       "image": "https://www.instacart.com/image-server/394x394/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_3e139cc9-6088-4d14-8e29-efbbec784ce9.jpg",
       "price_per_unit": 5.99,
       "units": "lb",
-      "department": "Produce"
+      "department": "Produce",
+      "description": "Sweetest strawberries from Silverman's Farm"
     },
     {
       "id": 2,
@@ -44,7 +45,7 @@
       "price_per_unit": 2.25,
       "units": "bunch",
       "department": "Produce",
-      "in_cart": 9
+      "description": "Bunch of super ripe bananas"
     },
     {
       "id": 4,
@@ -54,17 +55,17 @@
       "price_per_unit": 2,
       "units": "item",
       "department": "Produce",
-      "in_cart": 3
+      "description": "Head of broccoli from Farm Fresh"
     },
     {
       "id": 5,
       "name": "Red Bell Pepper",
-      "brand": "Farm Fresh",
+      "brand": "Silverman's Farm",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_91e6ebd6-fb26-4320-bc37-2003de8b54ce.jpg",
       "price_per_unit": 2.2,
       "units": "item",
       "department": "Produce",
-      "in_cart": 1
+      "description": "Single bell pepper from Silverman's Farm"
     },
     {
       "id": 6,
@@ -75,17 +76,17 @@
       "price_per_unit": 1.1,
       "units": "item",
       "department": "Produce",
-      "in_cart": 0
+      "description": "Single bell pepper from Farm Fresh"
     },
     {
       "id": 7,
       "name": "Tomato",
-      "brand": "Farm Fresh",
+      "brand": "Long Island Tomatoes",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_75068ae6-6ba0-4376-af36-ef1b01b7b608.jpg",
       "price_per_unit": 0.2,
       "units": "item",
       "department": "Produce",
-      "in_cart": 3
+      "description": "Plum tomato from Long Island, NY"
     },
     {
       "id": 8,
@@ -95,7 +96,7 @@
       "price_per_unit": 0.1,
       "units": "item",
       "department": "Produce",
-      "in_cart": 1
+      "description": "One head of garlic"
     },
     {
       "id": 9,
@@ -105,7 +106,7 @@
       "price_per_unit": 5.5,
       "units": "dozen",
       "department": "Dairy + Eggs",
-      "in_cart": 0
+      "description": "Organic free range eggs"
     },
     {
       "id": 10,
@@ -115,7 +116,7 @@
       "price_per_unit": 6.5,
       "units": "lb",
       "department": "Dairy + Eggs",
-      "in_cart": 1
+      "description": "Unsalted butter"
     },
     {
       "id": 11,
@@ -125,7 +126,7 @@
       "price_per_unit": 5.29,
       "units": "package",
       "department": "Dairy + Eggs",
-      "in_cart": 0
+      "description": "String cheese perfect for kids!"
     },
     {
       "id": 12,
@@ -135,7 +136,7 @@
       "price_per_unit": 5.99,
       "units": "1/2 gal",
       "department": "Dairy + Eggs",
-      "in_cart": 0
+      "description": "Whole milk from free range cows"
     },
     {
       "id": 13,
@@ -146,7 +147,7 @@
       "price_per_unit": 11.49,
       "units": "lb",
       "department": "Meat + Seafood",
-      "in_cart": 0
+      "description": "Pasture raised chickens only, no antibiotics"
     },
     {
       "id": 14,
@@ -157,18 +158,18 @@
       "price_per_unit": 6.49,
       "units": "lb",
       "department": "Meat + Seafood",
-      "in_cart": 1
+      "description": "Pasture raised turkey only, no antibiotics"
     },
     {
       "id": 15,
-      "name": "Rotini Pasta",
+      "name": "Pasta",
       "brand": "Barilla",
       "image": "https://www.instacart.com/image-server/514x514/filters:fill(FFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_1d3c507c-8658-4e29-a935-17d56f6bf757.png",
       "inventory": 4,
       "price_per_unit": 2,
       "units": "lb",
       "department": "Dry Goods + Pasta",
-      "in_cart": 1
+      "description": "Rotini shape pasta"
     },
     {
       "id": 16,
@@ -179,7 +180,7 @@
       "price_per_unit": 1.5,
       "units": "28 oz",
       "department": "Dry Goods + Pasta",
-      "in_cart": 0
+      "description": "Crushed tomatoes with basil. BPA free can"
     }
   ]
 }

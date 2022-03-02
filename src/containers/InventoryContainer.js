@@ -23,17 +23,10 @@ const InventoryContainer = (
       <Router>
         <NavBar totalInCart={totalInCart}/>
         <Switch>
-        <Route path ="/products/:id">
-          <ProductDetail selectedProductDetail={selectedProductDetail}/>
-        </Route>
-          <Route path ="/products">
-            <ProductsContainer
-              productsList={productsList}
-              handleAddClick={handleAddClick}
-              handleProductClick={handleProductClick}
-            />
+          <Route exact path ="/">
+              <Home />
           </Route>
-          <Route path ="/cart">
+          <Route exact path ="/cart">
             <CartContainer
               isSubmitted={isSubmitted}
               submitForm={submitForm}
@@ -44,9 +37,21 @@ const InventoryContainer = (
               handleAddCartClick={handleAddCartClick}
             />
           </Route>
-          <Route path ="/">
-            <Home />
+          <Route exact path ="/products">
+            <ProductsContainer
+              productsList={productsList}
+              handleAddClick={handleAddClick}
+              handleProductClick={handleProductClick}
+            />
           </Route>
+          <Route path ="/products/:id" component={ProductDetail}>
+          </Route>
+          
+          
+          
+          
+          
+          
         </Switch>
       </Router>
     </div>

@@ -423,9 +423,6 @@ const DetailCard = styled.div`
     background-color:#CB4C4E;
     color:white
   };
-  h4{
-    height: 20px;
-  };
   h6{
     font-family: "Playfair Display"
   };
