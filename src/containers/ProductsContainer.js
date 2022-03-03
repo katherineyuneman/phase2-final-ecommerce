@@ -19,12 +19,12 @@ const ProductsContainer = ({productsList, handleAddClick}) => {
     }
   }
 
-const handleSubmitSearch = (trackText) => {
+  const handleSubmitSearch = (trackText) => {
   const filtered = productsList.filter(filterProducts => filterProducts.name.toLowerCase().includes(trackText.toLowerCase()))
   setFilteredProductsList(filtered)
 }
 
-const handleSearchReset = () => {
+  const handleSearchReset = () => {
   setFilteredProductsList(productsList)
   document.querySelector('[name="searchInput"]').value=''
 }

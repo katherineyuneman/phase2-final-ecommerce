@@ -31,19 +31,19 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
             </label>
             <br />
             <label>Address line 2:
-              <input type="text" name="address2" value={formData.address2} onChange={(e) => setFormData({ ...formData, address2: e.target.value })}/>
+              <input type="text" name="address2" value={formData.address2} onChange={handleInputChange}/>
             </label>
             <br />
             <label>Zip Code:
-              <input type="text" name="zipcode" value={formData.zipcode} onChange={(e) => setFormData({ ...formData, zipcode: e.target.value })}/>
+              <input type="text" name="zipcode" value={formData.zipcode} onChange={handleInputChange}/>
             </label>
             <br />
             <label>City:
-              <input type="text" name="city" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })}/>
+              <input type="text" name="city" value={formData.city} onChange={handleInputChange}/>
             </label>
             <br/>
             <label>State: 
-              <select name="state" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })}>
+              <select name="state" value={formData.state} onChange={handleInputChange}>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AS">American Samoa</option>

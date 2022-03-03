@@ -6,7 +6,7 @@ const Home = () => {
     <HomeContainer>
       <h1>Welcome to the Grocery Store</h1>
       <br />
-      <Link exact to={"/products"}>
+      <Link to={"/products"}>
         <button>Start Shopping {'>>'} </button>
       </Link>
     </HomeContainer>

@@ -2,8 +2,6 @@ import { DropDown } from "../../styled-components/styleIndex"
 
 const ProductsFilter = ({handleChangeDept}) => {
 
-
-  
   return (
     <DropDown>
       <h4>Department Filter</h4>

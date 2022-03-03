@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react/cjs/react.development"
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import CartCard from "../components/cart/CartCard"
 import CheckoutForm from "../components/cart/CheckoutForm"
 import { CartDiv, HomeContainer } from "../styled-components/styleIndex"
@@ -9,6 +9,7 @@ const CartContainer = ({
   isSubmitted, submitForm, handleAddCartClick, selectedRemoval,
   handleRemoveClick, productsList, selectedProduct
 }) => {
+  
 
   const [ cartFetch, setCartFetch] = useState([])
   const [ PopUpisOpen, SetPopUpisOpen ] = useState(false);
@@ -24,35 +25,22 @@ const CartContainer = ({
     .catch(err => alert(err))
   },[selectedProduct, selectedRemoval])
 
+  if (productsList.length <= 0){return <div>Loading...</div>}
 
-const productCartFilter =
-  productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
+  const productCartFilter =
+    productsList.filter(product => cartFetch.some(cartItem => product.id === cartItem.product_id));
 
-const ProductCartArrayMerge =
-  productCartFilter.map(product => ({
-    ...cartFetch.find((item) => (item.product_id === product.id) && item.quantity), ...product
-  }));
-
-const totalCostArray =
-  ProductCartArrayMerge.map(product => ({
-    ...product, "totalCost": product.quantity * product.price_per_unit
-  }))
-
-let initialValue = 0
-const totalCost = totalCostArray.reduce(function(total, currentValue){
-  return total + currentValue.totalCost
-}, initialValue)
-
-
-// // eri sample code - not working
-// const totalCost = 0
-//   cartFetch.reduce((ci) => {
-//     const findProduct = productsList.find(p => ci.product_id === p.id)
-//     console.log("find product:", findProduct)
-
-//     return (findProduct)
-//     // return findProduct
-// }, 0)
+  const totalCost = cartFetch.reduce((total, ci) => {
+    const findProduct = productsList.find(p => ci.product_id === p.id)
+    console.log(productsList)
+    console.log("ci", ci)
+    console.log("find product:", findProduct)
+    const costForItem = findProduct.price_per_unit
+    const quantity = ci.quantity
+    const totalCost = costForItem * quantity
+    return (total + totalCost)
+    // return findProduct
+}, 0)
 
 const eachProductInCart = 
   productCartFilter.map((cartProduct) => 
@@ -93,9 +81,9 @@ const eachProductInCart =
         <HomeContainer>
           <h1>Thank you for shopping!</h1>
           <br />
-          <NavLink exact to="/products">
+          <Link to="/products">
             <button>Shop for more products! {'>>'} </button>
-          </NavLink>
+          </Link>
         </HomeContainer>
       </CartDiv>
 

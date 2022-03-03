@@ -8,13 +8,13 @@ const NavBar = ({totalInCart}) => {
       <Header>
         <h1>Grocery Store</h1>
         <nav>
-          <NavLink exact to="/">
+          <NavLink to="/">
             <li>Home</li>
           </NavLink>
-          <NavLink exact to="/products">
+          <NavLink to="/products">
             <li>Products</li>
           </NavLink>
-          <NavLink exact to="/cart">
+          <NavLink to="/cart">
             <li> Cart ({totalInCart})</li>
           </NavLink>
        </nav>

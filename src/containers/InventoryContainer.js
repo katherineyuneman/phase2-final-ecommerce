@@ -4,23 +4,21 @@ import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
 import Home from '../components/Home';
 import ProductDetail from '../components/products/ProductDetail';
-import { useState } from 'react';
 
 const InventoryContainer = (
   { isSubmitted, submitForm, totalInCart, handleAddCartClick,
     selectedRemoval, handleRemoveClick, productsList, cart, handleAddClick
 }) => {
 
-
   return (
     <div>
       <Router>
         <NavBar totalInCart={totalInCart}/>
         <Switch>
-          <Route exact path ="/">
+          <Route exact path="/">
               <Home />
           </Route>
-          <Route exact path ="/cart">
+          <Route exact path="/cart">
             <CartContainer
               isSubmitted={isSubmitted}
               submitForm={submitForm}
@@ -31,13 +29,13 @@ const InventoryContainer = (
               handleAddCartClick={handleAddCartClick}
             />
           </Route>
-          <Route exact path ="/products">
+          <Route exact path="/products">
             <ProductsContainer
               productsList={productsList}
               handleAddClick={handleAddClick}
             />
           </Route>
-          <Route path ="/products/:id" component={ProductDetail}>
+          <Route path="/products/:id" component={ProductDetail}>
           </Route>
           
           
