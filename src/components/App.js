@@ -133,8 +133,18 @@ function App() {
     }
  }
 
-  const submitForm = (e) => {
-    e.preventDefault();
+  const submitForm = (formData) => {
+    console.log(Object.values(formData))
+    const {address2, ...updatedFormData} = formData
+    console.log(updatedFormData)
+    const inputValues = Object.values(updatedFormData).some(value => value.trim() === "")
+    if (!!inputValues) {
+      alert("You must fill out all of the fields!")
+  } else if (!!Number(formData.zipcode) === false ){
+      alert("Please enter a valid zipcode")
+  } else if (formData.state === "default"){
+    alert("Please select your state.")
+  } else {
     setIsSubmitted(true)
     setTemporaryCart([])
     cartFetch.map(cartItem => 
@@ -143,7 +153,7 @@ function App() {
       headers: {
         'Content-Type': 'application/json'
     },
-    body:JSON.stringify(cartItem)
+      body:JSON.stringify(cartItem)
     })
       .then(resp =>  {
         if (resp.ok) {
@@ -152,6 +162,7 @@ function App() {
       })
       .catch(err => alert(err))
     )
+    }
   }
 
   // aggregation of total quantity in cart for NavBar

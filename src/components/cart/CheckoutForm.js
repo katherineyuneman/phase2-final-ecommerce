@@ -25,7 +25,10 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
         <div className="box">
         <span className="close-icon" onClick={togglePopup}>x</span>
           <h3> Check-Out</h3>
-          <form onSubmit={submitForm}>
+
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            submitForm(formData)}}>
             <label>Address line 1:
               <input type="text" name="address1" value={formData.address1} onChange={handleInputChange}/>
             </label>
@@ -35,7 +38,7 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
             </label>
             <br />
             <label>Zip Code:
-              <input type="text" name="zipcode" value={formData.zipcode} onChange={handleInputChange}/>
+              <input type="text" name="zipcode" value={formData.zipcode} maxLength={5} onChange={handleInputChange}/>
             </label>
             <br />
             <label>City:
@@ -44,6 +47,7 @@ const CheckoutForm = ({submitForm, totalCost, togglePopup}) => {
             <br/>
             <label>State: 
               <select name="state" value={formData.state} onChange={handleInputChange}>
+                <option value="default">Select State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AS">American Samoa</option>

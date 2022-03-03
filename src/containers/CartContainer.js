@@ -79,7 +79,7 @@ const eachProductInCart =
     : 
       <CartDiv>
         <HomeContainer>
-          <h1>Thank you for shopping!</h1>
+          <h1>Thank you for submitting your cart!</h1>
           <br />
           <Link to="/products">
             <button>Shop for more products! {'>>'} </button>
