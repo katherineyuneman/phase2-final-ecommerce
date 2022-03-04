@@ -43,6 +43,8 @@ function App() {
     fetchCart();
   },[temporaryCart, selectedRemoval])
 
+  if (productsList.length <= 0){return <div>Loading...</div>}
+
   // event handler functions
 
   const handleAddClick = (product) => {
