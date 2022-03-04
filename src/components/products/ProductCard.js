@@ -2,9 +2,7 @@ import { Card } from "../../styled-components/styleIndex"
 import { Link } from "react-router-dom"
 
 const ProductCard = ({handleAddClick, product}) => {
-
- 
-
+  
   return (
     <Card>
      <h5>{product.department}</h5>

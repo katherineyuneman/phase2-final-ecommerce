@@ -62,17 +62,17 @@ function App() {
     })
     })
     .then(resp =>  resp.json())
-    .then(newItem => setCartFetch(cartFetch.map(item => newItem.id === item.id ? newItem : item)))
+    .then(patchedItem => setCartFetch(cartFetch.map(item => patchedItem.id === item.id ? patchedItem : item)))
     .catch(err => alert(err))
 
     // does not exist in actual cart
-    const tempCItem = temporaryCart.find(item => item.product_id === product.id)
-    if ((!!cItem === false || !!cItem === undefined) && !!tempCItem === false){
+    const tempCItem = temporaryCart.some(item => item.product_id === product.id)
+    if ((!!cItem === false || !!cItem === undefined) && !tempCItem){
      const newTempObj = {
         "product_id": product.id
      }
      setTemporaryCart([...temporaryCart, newTempObj])
-     
+
      fetch('http://localhost:3000/cart', {
         method: 'POST',
         headers: {

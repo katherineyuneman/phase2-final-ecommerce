@@ -16,16 +16,16 @@ const ProductsSearch = ({ handleSubmitSearch, handleSearchReset }) => {
 
   return (
     <SearchStyle>
-      <form onSubmit={e => {
+      <form onSubmit={(e) => {
         e.preventDefault();
         handleSubmitSearch(trackText)}
       }>
         <label htmlFor="search">Search product name</label><br/>
         <input type="text" name="searchInput" onChange={handleSearchInputs}></input>
         <br />
-        <input type="submit" name="submit" value="Search" />
+        <input type="submit" name="submit" value="Search" /> 
         <br />
-        <input type="button" name= "reset" value="Reset Product List" onClick={handleSearchReset}/>
+        <input type="button" name= "reset" value="Reset Search Field" onClick={handleSearchReset}/>
       </form>
     </SearchStyle>
   )

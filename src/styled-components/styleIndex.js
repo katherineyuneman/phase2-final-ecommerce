@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const GeneralStyle = styled.div`
 
+
 `
 const Header = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&family=Playfair+Display:ital,wght@1,800&display=swap');
@@ -125,7 +126,7 @@ const Card = styled.div`
     height: 20px;
   };
   h6{
-    font-family: "Playfair Display"
+    font-family: "Montserrat", sans-serif;
   };
   
   button{
