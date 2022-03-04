@@ -8,7 +8,6 @@ import { ProductFeatureContainer, DropDown, SearchStyle } from "../styled-compon
 const ProductsContainer = ({productsList, handleAddClick}) => {
 
   const [ filteredProductsList, setFilteredProductsList ] = useState(productsList)
-  const [ sortAsc, setSortAsc ] = useState(false)
 
   const handleChangeDept = (event) => {
     setFilteredProductsList(productsList)
@@ -30,26 +29,6 @@ const ProductsContainer = ({productsList, handleAddClick}) => {
   document.querySelector('[name="searchInput"]').value=''
 }
 
-const handleSort = (event) => {
-  const ascText = "Sort $ Low to High"
-  const descText = "Sort $ Hight to Low"
-  setSortAsc(!sortAsc)
-
-  if (sortAsc === false) {
-    event.target.textContent = ascText
-    const sortedAscProducts = productsList.sort(function (a,b){
-      return a.price_per_unit - b.price_per_unit
-    } )
-    setFilteredProductsList(priorSorted => [...sortedAscProducts])
-  } else {
-    event.target.textContent = ascText
-    const sortedDescProcuts = productsList.sort(function (a,b){
-      return b.price_per_unit - a.price_per_unit
-    } )
-    setFilteredProductsList(priorSorted => [...sortedDescProcuts])}
-
-}
-
   return (
     <div>
       <ProductFeatureContainer>
@@ -57,7 +36,7 @@ const handleSort = (event) => {
           <ProductsFilter handleChangeDept={handleChangeDept}/>
         </DropDown>
         <SearchStyle>
-          <ProductsSearch handleSort={handleSort} handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/>
+          <ProductsSearch handleSubmitSearch={handleSubmitSearch} handleSearchReset={handleSearchReset}/>
         </SearchStyle>
       </ProductFeatureContainer>
       <ProductsList

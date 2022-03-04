@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProductsContainer from '../containers/ProductsContainer';
 import CartContainer from '../containers/CartContainer';
 import NavBar from '../components/navigation/NavBar';
@@ -35,14 +35,7 @@ const InventoryContainer = (
               handleAddClick={handleAddClick}
             />
           </Route>
-          <Route path="/products/:id" component={ProductDetail}>
-          </Route>
-          
-          
-          
-          
-          
-          
+          <Route path="/products/:id" component={ProductDetail}/>
         </Switch>
       </Router>
     </div>

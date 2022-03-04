@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     fetchCart();
+    console.log(temporaryCart)
   },[temporaryCart, selectedRemoval])
 
   if (productsList.length <= 0){return <div>Loading...</div>}
@@ -86,6 +87,7 @@ function App() {
         .then(resp =>  resp.json())
         .catch(err => alert(err))
     }
+    console.log("temp cart at end of handleclick", temporaryCart)
   }
 
   const handleAddCartClick = (cartProduct) => {

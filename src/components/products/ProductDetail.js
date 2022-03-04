@@ -14,7 +14,6 @@ useEffect(() => {
     .catch(err => alert(err))
 }, [])
 
-
   return (
     <div>
         <br/><br/><br/>
