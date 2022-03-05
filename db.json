@@ -1,5 +1,16 @@
 {
-  "cart": [],
+  "cart": [
+    {
+      "product_id": 1,
+      "quantity": 5,
+      "id": 1
+    },
+    {
+      "product_id": 6,
+      "quantity": 3,
+      "id": 4
+    }
+  ],
   "products": [
     {
       "id": 1,

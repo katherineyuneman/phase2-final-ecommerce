@@ -41,7 +41,6 @@ function App() {
 
   useEffect(() => {
     fetchCart();
-    console.log(temporaryCart)
   },[temporaryCart, selectedRemoval])
 
   if (productsList.length <= 0){return <div>Loading...</div>}
@@ -87,7 +86,6 @@ function App() {
         .then(resp =>  resp.json())
         .catch(err => alert(err))
     }
-    console.log("temp cart at end of handleclick", temporaryCart)
   }
 
   const handleAddCartClick = (cartProduct) => {
@@ -138,9 +136,7 @@ function App() {
  }
 
   const submitForm = (formData) => {
-    console.log(Object.values(formData))
     const {address2, ...updatedFormData} = formData
-    console.log(updatedFormData)
     const inputValues = Object.values(updatedFormData).some(value => value.trim() === "")
     if (!!inputValues) {
       alert("You must fill out all of the fields!")
